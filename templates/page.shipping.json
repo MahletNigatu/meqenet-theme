@@ -1,20 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
-      "type": "prose-page",
+      "type": "moved",
       "settings": {
-        "kicker": "Help",
         "heading": "Shipping",
-        "body": "<p>Every MEQENET piece is printed and sewn when you order it. Nothing sits in a warehouse, which means a short wait before your order ships and very little waste behind it.</p>\n<h3>Production</h3><p>Two to five business days for most items. Embroidered pieces can take a day or two longer.</p>\n<h3>Transit</h3><p>Once the piece leaves the production facility, domestic orders usually arrive in three to five business days. International times vary by destination.</p>\n<h3>Tracking</h3><p>You'll get a tracking link by email as soon as the order ships. If it hasn't arrived within a week of that email, write to us.</p>\n<h3>Rates</h3><p>Shipping is calculated at checkout against your address. Orders over the free-shipping threshold ship at no cost.</p>\n<h3>Customs</h3><p>International orders may be subject to import duties collected by your local carrier. Those charges are set by your country, not by us.</p>"
+        "anchor": "shipping"
       }
     }
   },

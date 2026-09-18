@@ -1,10 +1,9 @@
 {
   "sections": {
     "main": {
-      "type": "moved",
+      "type": "legal",
       "settings": {
-        "heading": "Returns & exchanges",
-        "anchor": "returns"
+        "updated": "September 2026"
       }
     }
   },

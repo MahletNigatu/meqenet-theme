@@ -1,0 +1,96 @@
+<main class="sec" style="padding-top:52px">
+  <p class="kicker">Contact &amp; help</p>
+  <h1 class="coll__h1">How can we help?</h1>
+  <p class="coll__lede">Write to us and a person reads it. Most answers are below &mdash; if yours isn't, the form at the bottom reaches us directly.</p>
+
+  <div class="divider" style="padding:26px 0 0"><div class="tilat-rule tilat"></div></div>
+
+  <div class="faq">
+    <details id="shipping" open>
+      <summary><span class="faq__n">01</span>Shipping</summary>
+      <div class="faq__body">
+        <p>Every MEQENET piece is printed and sewn when you order it. Nothing sits in a warehouse, which means a short wait before your order ships and very little waste behind it.</p>
+        <p><strong>Production.</strong> Two to five business days for most items. Embroidered pieces can take a day or two longer.</p>
+        <p><strong>Transit.</strong> Once the piece leaves the production facility, domestic orders usually arrive in three to five business days. International times vary by destination.</p>
+        <p><strong>Tracking.</strong> You'll get a tracking link by email as soon as the order ships. If it hasn't arrived within a week of that email, write to us.</p>
+        <p><strong>Rates.</strong> Shipping is calculated at checkout against your address.</p>
+        <p><strong>Customs.</strong> International orders may be subject to import duties collected by your local carrier. Those charges are set by your country, not by us.</p>
+      </div>
+    </details>
+
+    <details id="returns">
+      <summary><span class="faq__n">02</span>Returns &amp; exchanges</summary>
+      <div class="faq__body">
+        <p>Because each piece is made for you specifically, we can't restock returns. That said, we don't want you stuck with something wrong.</p>
+        <p><strong>Damaged or misprinted.</strong> Write to us within 30 days of delivery with a photo and we'll remake it or refund it. No need to send the original back.</p>
+        <p><strong>Wrong size.</strong> Check the size guide before ordering &mdash; that's the honest advice. If it still arrives wrong, contact us within 30 days and we'll work it out.</p>
+        <p><strong>Wrong address.</strong> If a package comes back to us because the address was incorrect, we'll reship it once you confirm the correct one. Reshipping is at your cost.</p>
+        <p><strong>Changed your mind.</strong> Email us within two hours of ordering and we can usually cancel before production starts. After that the piece is already being made.</p>
+      </div>
+    </details>
+
+    <details id="sizing">
+      <summary><span class="faq__n">03</span>Size guide</summary>
+      <div class="faq__body">
+        <p>Sizing varies by garment, so the numbers on each product page are the ones to trust. What follows is general guidance.</p>
+        <p><strong>Measuring.</strong> Lay a shirt you already like flat and measure across the chest, armpit to armpit. Double it. That's your chest measurement, and it's a more reliable guide than what you think your size is.</p>
+        <p><strong>Fit.</strong> Our tees run true to size with a straight body. If you prefer room through the shoulder or wear layers underneath, size up.</p>
+        <p><strong>Hoodies and crewnecks.</strong> These run relaxed by design. Most people take their usual size and get the fit we intended.</p>
+        <p><strong>Between sizes.</strong> Size up. Cotton shrinks slightly on the first wash even with cold water.</p>
+        <p><strong>Care.</strong> Cold wash, inside out, tumble dry low. The print lasts considerably longer that way.</p>
+      </div>
+    </details>
+
+    <details id="made">
+      <summary><span class="faq__n">04</span>How it's made</summary>
+      <div class="faq__body">
+        <p>MEQENET is made to order. When you place an order, that specific piece is printed, sewn where needed, and sent to you.</p>
+        <p><strong>Why made to order.</strong> A small brand guessing at demand ends up either sold out or sitting on stock nobody wanted. Printing on demand removes the guess, and removes the pile of unsold garments that comes with guessing wrong.</p>
+        <p><strong>The printing.</strong> Designs are printed directly onto the garment with water-based inks that sit in the fabric rather than on top of it. The hand stays soft and the print doesn't crack.</p>
+        <p><strong>The blanks.</strong> We choose blanks for weight and for how they hold color &mdash; particularly the cream, which is central to how the brand reads and which most garments get wrong.</p>
+        <p><strong>The packaging.</strong> A woven ribbon in green, gold and red tilat trim holds the box closed, the wordmark pressed into the paper beneath it. Inside, a note card.</p>
+      </div>
+    </details>
+
+    <details id="orders">
+      <summary><span class="faq__n">05</span>Order questions</summary>
+      <div class="faq__body">
+        <p>Have your order number ready &mdash; it's in your confirmation email and starts with a #.</p>
+        <p>For damaged or misprinted items, send a photo and we'll sort it without needing the piece back.</p>
+        <p>Wholesale, press, collaborations, or a question about the word itself are all welcome too.</p>
+        <p><strong>Response time.</strong> One business day, usually less.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="divider" style="padding:34px 0"><div class="tilat-rule tilat"></div></div>
+
+  <section class="ctform">
+    <div>
+      <h2 class="ctform__h">Still need us?</h2>
+      <p class="ctform__note">Send a note and we'll write back within one business day.</p>
+    </div>
+    {% form 'contact' %}
+      <div class="ctform__grid">
+        <label class="fld"><span>Name</span>
+          <input type="text" name="contact[name]" required></label>
+        <label class="fld"><span>Email</span>
+          <input type="email" name="contact[email]" required></label>
+        <label class="fld fld--wide"><span>Order number, if you have one</span>
+          <input type="text" name="contact[order]" placeholder="#1001"></label>
+        <label class="fld fld--wide"><span>Message</span>
+          <textarea name="contact[body]" rows="6" required></textarea></label>
+      </div>
+      <button type="submit" class="btn">Send</button>
+      {% if form.posted_successfully? %}
+        <p class="ctform__ok">Thank you &mdash; we have it and will write back shortly.</p>
+      {% endif %}
+      {% if form.errors %}
+        <p class="ctform__err">{{ form.errors | default_errors }}</p>
+      {% endif %}
+    {% endform %}
+  </section>
+</main>
+{% schema %}
+{ "name": "Contact & help", "settings": [] }
+{% endschema %}

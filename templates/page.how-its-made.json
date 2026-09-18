@@ -1,20 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
-      "type": "prose-page",
+      "type": "moved",
       "settings": {
-        "kicker": "The brand",
         "heading": "How it's made",
-        "body": "<p>MEQENET is made to order. When you place an order, that specific piece is printed, sewn where needed, and sent to you.</p>\n<h3>Why made to order</h3><p>A small brand guessing at demand ends up either sold out or sitting on stock nobody wanted. Printing on demand removes the guess, and removes the pile of unsold garments that comes with guessing wrong.</p>\n<h3>The printing</h3><p>Designs are printed directly onto the garment with water-based inks that sit in the fabric rather than on top of it. The hand stays soft and the print doesn't crack.</p>\n<h3>The blanks</h3><p>We choose blanks for weight and for how they hold color — particularly the cream, which is central to how the brand reads and which most garments get wrong.</p>\n<h3>The packaging</h3><p>A woven ribbon in green, gold and red tilat trim holds the box closed, the wordmark pressed into the paper beneath it. Inside, a note card.</p>"
+        "anchor": "made"
       }
     }
   },
