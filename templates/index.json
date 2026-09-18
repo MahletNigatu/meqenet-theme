@@ -1,9 +1,19 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
         "kicker": "A women's empowerment lifestyle brand",
+        "image": "shopify://shop_images/brand-hero.png",
         "heading": "Tie Yourself Together.",
         "body": "<p>መቀነት (meqenet) is a traditional Ethiopian fabric belt, sash, or waistband, woven from cotton and often decorated with vibrant, colorful patterns called tilat. Traditionally worn by women wrapped tightly around the waist over the Habesha kemis, it has always been more than an accessory. It's a general belt, a girdle, a cincture — something that holds and secures.</p><p>But for Ethiopian women, መቀነት carries a meaning that goes far beyond fabric.</p>",
         "cta_label": "Shop the Collections",
@@ -18,23 +28,13 @@
     },
     "pillars": {
       "type": "pillars",
-      "settings": {
-        "title": "Brand Pillars"
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5"
-      ],
       "blocks": {
         "p1": {
           "type": "pillar",
           "settings": {
             "name": "Strength",
             "line": "We gather our inner power.",
-            "color": "#6BADE6",
+            "color": "#6bade6",
             "glyph": "strength"
           }
         },
@@ -43,7 +43,7 @@
           "settings": {
             "name": "Support",
             "line": "We hold and uplift.",
-            "color": "#6A7B3D",
+            "color": "#6a7b3d",
             "glyph": "support"
           }
         },
@@ -52,7 +52,7 @@
           "settings": {
             "name": "Courage",
             "line": "We face what's hard.",
-            "color": "#C4695A",
+            "color": "#c4695a",
             "glyph": "courage"
           }
         },
@@ -61,7 +61,7 @@
           "settings": {
             "name": "Resilience",
             "line": "We fix, learn, and keep going.",
-            "color": "#D8A620",
+            "color": "#d8a620",
             "glyph": "resilience"
           }
         },
@@ -70,17 +70,70 @@
           "settings": {
             "name": "Heritage",
             "line": "We honor our roots and culture.",
-            "color": "#2E6E9E",
+            "color": "#2e6e9e",
             "glyph": "heritage"
           }
         }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "title": "Brand Pillars"
       }
     },
     "tiles": {
       "type": "collection-tiles",
-      "settings": {
-        "heading": "Shop by Collection",
-        "sub": "Four lines, four visual worlds, one brand."
+      "blocks": {
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "collection": "",
+            "title": "MEQENET",
+            "blurb": "Try. Fail. Fix the መቀነት. Try again. The founding line — resilience in motion.",
+            "image": "shopify://shop_images/tee-meqenet-mauve.png",
+            "accent": "#c4695a",
+            "tint": "#fbede8",
+            "style": "light"
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "collection": "",
+            "title": "Society",
+            "blurb": "The invisible weight of expectation — and the woman who stays herself inside it.",
+            "accent": "#8e8e8e",
+            "tint": "#0c0c0c",
+            "style": "dark"
+          }
+        },
+        "t3": {
+          "type": "tile",
+          "settings": {
+            "collection": "",
+            "title": "Kaldi's Goat",
+            "blurb": "A nod to the legendary goat herder who discovered coffee — for the ones who need their cup before anything else.",
+            "accent": "#2e6e9e",
+            "tint": "#e2f0fb",
+            "style": "light"
+          }
+        },
+        "t4": {
+          "type": "tile",
+          "settings": {
+            "collection": "",
+            "title": "Addis Abeba",
+            "blurb": "City life, rooted in home.",
+            "accent": "#2e6e9e",
+            "tint": "#dce7f1",
+            "style": "soon"
+          }
+        }
       },
       "block_order": [
         "t1",
@@ -88,47 +141,9 @@
         "t3",
         "t4"
       ],
-      "blocks": {
-        "t1": {
-          "type": "tile",
-          "settings": {
-            "title": "MEQENET",
-            "blurb": "Try. Fail. Fix the መቀነት. Try again. The founding line — resilience in motion.",
-            "accent": "#C4695A",
-            "tint": "#FBEDE8",
-            "style": "light"
-          }
-        },
-        "t2": {
-          "type": "tile",
-          "settings": {
-            "title": "Society",
-            "blurb": "The invisible weight of expectation — and the woman who stays herself inside it.",
-            "accent": "#8E8E8E",
-            "tint": "#0C0C0C",
-            "style": "dark"
-          }
-        },
-        "t3": {
-          "type": "tile",
-          "settings": {
-            "title": "Kaldi's Goat",
-            "blurb": "A nod to the legendary goat herder who discovered coffee — for the ones who need their cup before anything else.",
-            "accent": "#2E6E9E",
-            "tint": "#E2F0FB",
-            "style": "light"
-          }
-        },
-        "t4": {
-          "type": "tile",
-          "settings": {
-            "title": "Addis Abeba",
-            "blurb": "City life, rooted in home.",
-            "accent": "#2E6E9E",
-            "tint": "#DCE7F1",
-            "style": "soon"
-          }
-        }
+      "settings": {
+        "heading": "Shop by Collection",
+        "sub": "Four lines, four visual worlds, one brand."
       }
     },
     "featured": {
@@ -136,10 +151,11 @@
       "settings": {
         "heading": "Featured",
         "sub": "From the live collections.",
+        "collection": "",
         "count": 4,
         "link_label": "Shop all",
         "link_url": "/collections/all",
-        "tag_color": "#2E6E9E"
+        "tag_color": "#2e6e9e"
       }
     },
     "unboxing": {
