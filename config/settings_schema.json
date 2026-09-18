@@ -1,0 +1,33 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "MEQENET",
+    "theme_version": "0.1.0",
+    "theme_author": "MEQENET",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Page ground",
+        "default": "#F6F3EC"
+      },
+      {
+        "type": "color",
+        "id": "color_paper",
+        "label": "Paper",
+        "default": "#FDFBF3"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Gold",
+        "default": "#D8A620"
+      }
+    ]
+  }
+]

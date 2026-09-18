@@ -1,0 +1,43 @@
+<section class="pillars">
+  {% if section.settings.title != blank %}
+    <p class="kicker" style="text-align:center">{{ section.settings.title }}</p>
+  {% endif %}
+  <div class="pillars__grid">
+    {% for block in section.blocks %}
+      <div class="pillar" {{ block.shopify_attributes }}>
+        {% case block.settings.glyph %}
+          {% when 'strength' %}<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="{{ block.settings.color }}" stroke-width="1.2"><path d="M12 2l10 10-10 10L2 12z"/><path d="M12 8l4 4-4 4-4-4z"/></svg>
+          {% when 'support' %}<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="{{ block.settings.color }}" stroke-width="1.2"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7z"/></svg>
+          {% when 'courage' %}<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="{{ block.settings.color }}" stroke-width="1.2"><path d="M12 2l4 5-4 5-4-5z"/><path d="M12 12l4 5-4 5-4-5z"/></svg>
+          {% when 'resilience' %}<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="{{ block.settings.color }}" stroke-width="1.2"><path d="M12 2l3.5 6.5L22 12l-6.5 3.5L12 22l-3.5-6.5L2 12l6.5-3.5z"/></svg>
+          {% else %}<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="{{ block.settings.color }}" stroke-width="1.2"><path d="M12 2l10 10-10 10L2 12z"/><path d="M12 7v10M7 12h10"/></svg>
+        {% endcase %}
+        <h4>{{ block.settings.name }}</h4>
+        <p>{{ block.settings.line }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Brand pillars",
+  "settings": [ { "type": "text", "id": "title", "label": "Kicker", "default": "Brand Pillars" } ],
+  "blocks": [{
+    "type": "pillar", "name": "Pillar",
+    "settings": [
+      { "type": "text", "id": "name", "label": "Name" },
+      { "type": "text", "id": "line", "label": "One line" },
+      { "type": "color", "id": "color", "label": "Glyph color", "default": "#6BADE6" },
+      { "type": "select", "id": "glyph", "label": "Glyph", "default": "strength",
+        "options": [
+          { "value": "strength", "label": "Diamond in diamond" },
+          { "value": "support", "label": "Cross" },
+          { "value": "courage", "label": "Stacked leaves" },
+          { "value": "resilience", "label": "Star" },
+          { "value": "heritage", "label": "Diamond with cross" }
+        ] }
+    ]
+  }],
+  "presets": [{ "name": "Brand pillars" }]
+}
+{% endschema %}

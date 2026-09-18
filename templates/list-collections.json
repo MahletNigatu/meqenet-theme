@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "placeholder",
+      "settings": {
+        "kicker": "Collections",
+        "heading": "All collections",
+        "body": "Coming with the next build."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

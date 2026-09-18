@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "placeholder",
+      "settings": {
+        "kicker": "Search",
+        "heading": "Search coming next",
+        "body": "Coming with the next build."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,55 @@
+<footer class="site-foot">
+  <div class="site-foot__in">
+    <div>
+      <span class="brand__eth" style="display:block;margin-bottom:8px">{{ section.settings.amharic }}</span>
+      <p style="margin:0;font-size:14px;line-height:1.65;color:var(--ink-mute);max-width:34ch">{{ section.settings.blurb }}</p>
+    </div>
+    {% for block in section.blocks %}
+      {% if block.type == 'menu' %}
+        <div {{ block.shopify_attributes }}>
+          <h4>{{ block.settings.title }}</h4>
+          <ul>
+            {% for link in linklists[block.settings.menu].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% elsif block.type == 'newsletter' %}
+        <div {{ block.shopify_attributes }}>
+          <h4>{{ block.settings.title }}</h4>
+          <p style="margin:0 0 14px;font-size:14px;line-height:1.6;color:var(--ink-soft);max-width:34ch">{{ block.settings.body }}</p>
+          {% form 'customer' %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="news">
+              <input type="email" name="contact[email]" placeholder="you@email.com" required aria-label="Email">
+              <button type="submit">Join</button>
+            </div>
+            {% if form.posted_successfully? %}<p style="margin:10px 0 0;font-size:13px;color:var(--olive)">Thank you &mdash; you are on the list.</p>{% endif %}
+          {% endform %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="site-foot__bar">
+    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+    <span>{{ section.settings.tagline }}</span>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "amharic", "label": "Amharic wordmark", "default": "መቀነት" },
+    { "type": "textarea", "id": "blurb", "label": "Blurb", "default": "A women's empowerment lifestyle brand built on the Ethiopian sash." },
+    { "type": "text", "id": "tagline", "label": "Bar tagline", "default": "Tie Yourself Together." }
+  ],
+  "blocks": [
+    { "type": "menu", "name": "Menu", "settings": [
+      { "type": "text", "id": "title", "label": "Heading", "default": "Shop" },
+      { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" } ] },
+    { "type": "newsletter", "name": "Newsletter", "limit": 1, "settings": [
+      { "type": "text", "id": "title", "label": "Heading", "default": "The list" },
+      { "type": "textarea", "id": "body", "label": "Body", "default": "New drops and collection news. Nothing else." } ] }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,37 @@
+<section class="hero">
+  {% if section.settings.kicker != blank %}<p class="hero__kicker">{{ section.settings.kicker }}</p>{% endif %}
+  {% if section.settings.image %}
+    <img src="{{ section.settings.image | image_url: width: 2320 }}"
+         srcset="{{ section.settings.image | image_url: width: 1160 }} 1160w, {{ section.settings.image | image_url: width: 2320 }} 2320w"
+         sizes="(min-width:1240px) 1160px, 100vw"
+         alt="{{ section.settings.image.alt | default: shop.name | escape }}" width="1160">
+  {% endif %}
+  {% if section.settings.heading != blank %}<h2>{{ section.settings.heading }}</h2>{% endif %}
+  {% if section.settings.body != blank %}<div class="hero__body">{{ section.settings.body }}</div>{% endif %}
+  <div class="hero__cta">
+    {% if section.settings.cta_label != blank %}
+      <a href="{{ section.settings.cta_url }}" class="btn">{{ section.settings.cta_label }}
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    {% endif %}
+    {% if section.settings.link2_label != blank %}
+      <a href="{{ section.settings.link2_url }}" class="link-underline">{{ section.settings.link2_label }}</a>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "A women's empowerment lifestyle brand" },
+    { "type": "image_picker", "id": "image", "label": "Brand image" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Tie Yourself Together." },
+    { "type": "richtext", "id": "body", "label": "Intro" },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop the Collections" },
+    { "type": "url", "id": "cta_url", "label": "Button link" },
+    { "type": "text", "id": "link2_label", "label": "Secondary link label", "default": "Our Roots" },
+    { "type": "url", "id": "link2_url", "label": "Secondary link" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

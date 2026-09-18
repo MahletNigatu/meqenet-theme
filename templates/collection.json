@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "placeholder",
+      "settings": {
+        "kicker": "Collection",
+        "heading": "Collection page coming next",
+        "body": "This home-page preview theme does not include the collection template yet."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

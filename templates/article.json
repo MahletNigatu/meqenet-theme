@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "placeholder",
+      "settings": {
+        "kicker": "Journal",
+        "heading": "Article",
+        "body": "Coming later."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

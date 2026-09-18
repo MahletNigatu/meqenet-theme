@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "placeholder",
+      "settings": {
+        "kicker": "Product",
+        "heading": "Product page coming next",
+        "body": "This home-page preview theme does not include the product template yet. That is the next build."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

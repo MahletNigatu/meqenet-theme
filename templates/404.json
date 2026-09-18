@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "placeholder",
+      "settings": {
+        "kicker": "Not found",
+        "heading": "This page has come untied.",
+        "body": "The link may be old, or the page may have moved. Try the collections."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
