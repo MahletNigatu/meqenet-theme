@@ -7,10 +7,12 @@
 {%- assign ground = '#FBEDE8' -%}
 {%- assign plate = '#F6E2DB' -%}
 {%- assign dark = false -%}
+{%- assign lede = '' -%}
 
 {%- if collection.handle contains 'kaldi' -%}
   {%- assign badge = 'Coffee first' -%}
   {%- assign tagline = 'Before anything else, the cup.' -%}
+  {%- capture lede -%}<p>A nod to the legendary Ethiopian goat herder who noticed his goats wouldn't sleep after eating a certain red berry &mdash; and gave the world coffee by accident.</p><p>For the ones who need their cup before they need anything.</p>{%- endcapture -%}
   {%- assign accent = '#D8A620' -%}
   {%- assign accent_deep = '#8C670F' -%}
   {%- assign rule = '#D8A620' -%}
@@ -25,6 +27,7 @@
   {%- assign ground = '#111111' -%}
   {%- assign plate = '#171717' -%}
   {%- assign dark = true -%}
+  {%- capture lede -%}<p>The invisible weight a woman is handed and expected to carry quietly &mdash; what to be, when, and for whom. This line names it rather than dressing it up.</p><p>And the woman who stays herself inside it.</p>{%- endcapture -%}
 {%- elsif collection.handle contains 'addis' -%}
   {%- assign badge = 'Coming soon' -%}
   {%- assign tagline = 'City life, rooted in home.' -%}
@@ -33,10 +36,15 @@
   {%- assign rule = '#6BADE6' -%}
   {%- assign ground = '#EEF4FA' -%}
   {%- assign plate = '#DCE7F1' -%}
-{%- elsif collection.handle contains 'meqenet' -%}
+  {%- capture lede -%}<p>Addis moves fast. Minibuses in that particular blue, corrugated roofs catching light, doorways stacked along a hill. This line takes the city apart and reweaves it.</p><p>For the women who live in the city and carry home with them.</p>{%- endcapture -%}
+{%- else -%}
   {%- assign badge = 'The founding line' -%}
   {%- assign tagline = 'Try. Fail. Fix the መቀነት. Try again.' -%}
+  {%- capture lede -%}<p>The line the brand is named for. A መቀነት is at once a source of strength and an admission that you had been weak &mdash; to reach for it is to acknowledge you were undone, and the same motion restores you.</p><p>Resilience in motion, worn plainly.</p>{%- endcapture -%}
 {%- endif -%}
+
+{%- comment -%} a description written in Shopify always wins {%- endcomment -%}
+{%- if collection.description != blank -%}{%- assign lede = collection.description -%}{%- endif -%}
 
 {%- if section.settings.badge != blank -%}{%- assign badge = section.settings.badge -%}{%- endif -%}
 {%- if section.settings.tagline != blank -%}{%- assign tagline = section.settings.tagline -%}{%- endif -%}
@@ -55,8 +63,8 @@
       {% if tagline != blank %}
         <p class="chead__tag" style="color:{{ accent_deep }}">{{ tagline }}</p>
       {% endif %}
-      {% if collection.description != blank %}
-        <div class="chead__lede" style="border-left-color:{{ rule }}">{{ collection.description }}</div>
+      {% if lede != blank %}
+        <div class="chead__lede" style="border-left-color:{{ rule }}">{{ lede }}</div>
       {% endif %}
     </div>
     <div class="chead__plate" style="border-color:{% if dark %}rgba(248,244,244,0.28){% else %}{{ accent_deep }}66{% endif %};background:{% if dark %}#0C0C0C{% else %}#FDFBF3{% endif %}">

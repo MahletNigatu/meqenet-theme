@@ -2,7 +2,8 @@
   --cream:#F6F3EC; --paper:#FDFBF3; --ink:#111111; --ink-soft:#2A2A2A; --ink-mute:#585858;
   --gold:#D8A620; --gold-deep:#8C670F; --salmon:#E98F8A; --clay:#C4695A; --clay-deep:#A9503F;
   --olive:#6A7B3D; --sky:#6BADE6; --sky-deep:#2E6E9E; --rule:rgba(17,17,17,0.16);
-  --head:'Yeften','Cormorant Garamond',serif; --body:'Fikir',Lora,Georgia,serif;
+  --head:'Yeften','Cormorant Garamond','Noto Serif Ethiopic',serif;
+  --body:'Fikir',Lora,'Noto Serif Ethiopic',Georgia,serif;
   --eth:'Noto Serif Ethiopic',serif; --wrap:1240px; --pad:28px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -38,8 +39,9 @@ p{margin:0 0 1em}
 .brand img{width:84px}
 .brand__eth{font-family:var(--eth);font-size:26px;line-height:1;letter-spacing:0.02em;color:var(--salmon)}
 .brand__latin{font-family:var(--head);font-size:13px;letter-spacing:0.34em;text-transform:uppercase;color:var(--ink)}
-.site-nav{display:flex;flex-wrap:wrap;gap:4px 8px;margin-left:auto}
-.site-nav a{font-family:var(--head);font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);padding:6px 10px;border-bottom:1px solid transparent}
+.site-nav{display:flex;flex-wrap:wrap;gap:2px 2px;margin-left:auto}
+.site-nav a{font-family:var(--head);font-size:14px;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;color:var(--ink);padding:6px 7px;border-bottom:1px solid transparent}
+@media (min-width:1100px){.site-nav a{font-size:14.5px;padding:6px 9px}}
 .site-nav a:hover{color:var(--gold-deep);border-bottom-color:var(--gold)}
 .cart-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--head);font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);border:1px solid var(--rule);border-radius:4px;padding:8px 13px}
 .cart-link:hover{border-color:var(--gold);color:var(--gold-deep)}
