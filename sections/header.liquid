@@ -18,13 +18,27 @@
           <a href="{{ link.url }}">{{ link.title }}</a>
         {% endfor %}
       {%- else -%}
-        {% for c in collections %}
-          {%- unless c.handle == 'frontpage' -%}
+        <a href="{{ routes.all_products_collection_url }}">Shop All</a>
+        {%- comment -%} fixed order first, then anything new {%- endcomment -%}
+        {%- assign order = 'meqenet,society,kaldi,addis' | split: ',' -%}
+        {%- assign placed = '' -%}
+        {%- for key in order -%}
+          {%- for c in collections -%}
+            {%- if c.handle contains key -%}
+              <a href="{{ c.url }}">{{ c.title }}</a>
+              {%- assign placed = placed | append: c.handle | append: ',' -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+        {%- for c in collections -%}
+          {%- unless c.handle == 'frontpage' or placed contains c.handle -%}
             <a href="{{ c.url }}">{{ c.title }}</a>
           {%- endunless -%}
-        {% endfor %}
+        {%- endfor -%}
+        {%- unless placed contains 'addis' -%}
+          <a href="/pages/addis-abeba">Addis Abeba</a>
+        {%- endunless -%}
         <a href="/pages/our-story">Our Story</a>
-        <a href="/pages/contact">Contact</a>
       {%- endif -%}
     </nav>
     <a href="{{ routes.cart_url }}" class="cart-link">
