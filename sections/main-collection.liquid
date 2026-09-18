@@ -9,7 +9,9 @@
 {%- assign dark = false -%}
 {%- assign lede = '' -%}
 
-{%- if collection.handle contains 'kaldi' -%}
+{%- assign hkey = collection.handle | append: ' ' | append: collection.title | downcase -%}
+
+{%- if hkey contains 'kaldi' -%}
   {%- assign badge = 'Coffee first' -%}
   {%- assign tagline = 'Before anything else, the cup.' -%}
   {%- capture lede -%}<p>A nod to the legendary Ethiopian goat herder who noticed his goats wouldn't sleep after eating a certain red berry &mdash; and gave the world coffee by accident.</p><p>For the ones who need their cup before they need anything.</p>{%- endcapture -%}
@@ -18,7 +20,7 @@
   {%- assign rule = '#D8A620' -%}
   {%- assign ground = '#F7EFDC' -%}
   {%- assign plate = '#EFE1C4' -%}
-{%- elsif collection.handle contains 'society' -%}
+{%- elsif hkey contains 'socie' -%}
   {%- assign badge = 'The weight we carry' -%}
   {%- assign tagline = 'Expectation is heavier than fabric.' -%}
   {%- assign accent = '#F8F4F4' -%}
@@ -28,7 +30,7 @@
   {%- assign plate = '#171717' -%}
   {%- assign dark = true -%}
   {%- capture lede -%}<p>The invisible weight a woman is handed and expected to carry quietly &mdash; what to be, when, and for whom. This line names it rather than dressing it up.</p><p>And the woman who stays herself inside it.</p>{%- endcapture -%}
-{%- elsif collection.handle contains 'addis' -%}
+{%- elsif hkey contains 'addis' -%}
   {%- assign badge = 'Coming soon' -%}
   {%- assign tagline = 'City life, rooted in home.' -%}
   {%- assign accent = '#2E6E9E' -%}
