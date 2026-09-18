@@ -93,7 +93,7 @@
           "settings": {
             "collection": "meqenet",
             "title": "MEQENET",
-            "blurb": "Try. Fail. Fix the መቀነት. Try again. The founding line — resilience in motion.",
+            "blurb": "Try. Fail. Fix the መቀነት. Try again. The founding line, resilience in motion.",
             "fallback": "tee-meqenet-mauve.png",
             "accent": "#c4695a",
             "tint": "#fbede8",
@@ -105,7 +105,7 @@
           "settings": {
             "collection": "socieቲው",
             "title": "Society",
-            "blurb": "The invisible weight of expectation — and the woman who stays herself inside it.",
+            "blurb": "The invisible weight of expectation, and the woman who stays herself inside it.",
             "fallback": "",
             "accent": "#8e8e8e",
             "tint": "#0c0c0c",
@@ -117,7 +117,7 @@
           "settings": {
             "collection": "kaldis-goat",
             "title": "Kaldi's Goat",
-            "blurb": "A nod to the legendary goat herder who discovered coffee — for the ones who need their cup before anything else.",
+            "blurb": "A nod to the legendary goat herder who discovered coffee, for the ones who need their cup before anything else.",
             "fallback": "",
             "accent": "#2e6e9e",
             "tint": "#e2f0fb",
