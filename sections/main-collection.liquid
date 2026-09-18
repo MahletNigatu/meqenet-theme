@@ -1,23 +1,80 @@
+{%- comment -%} per-collection identity, keyed off the handle {%- endcomment -%}
+{%- assign badge = 'Collection' -%}
+{%- assign tagline = '' -%}
 {%- assign accent = '#C4695A' -%}
-{%- if collection.handle contains 'society' -%}{%- assign accent = '#8E8E8E' -%}
-{%- elsif collection.handle contains 'kaldi' -%}{%- assign accent = '#2E6E9E' -%}
-{%- elsif collection.handle contains 'addis' -%}{%- assign accent = '#2E6E9E' -%}
+{%- assign accent_deep = '#A9503F' -%}
+{%- assign rule = '#E98F8A' -%}
+{%- assign ground = '#FBEDE8' -%}
+{%- assign plate = '#F6E2DB' -%}
+{%- assign dark = false -%}
+
+{%- if collection.handle contains 'kaldi' -%}
+  {%- assign badge = 'Coffee first' -%}
+  {%- assign tagline = 'Before anything else, the cup.' -%}
+  {%- assign accent = '#D8A620' -%}
+  {%- assign accent_deep = '#8C670F' -%}
+  {%- assign rule = '#D8A620' -%}
+  {%- assign ground = '#F7EFDC' -%}
+  {%- assign plate = '#EFE1C4' -%}
+{%- elsif collection.handle contains 'society' -%}
+  {%- assign badge = 'The weight we carry' -%}
+  {%- assign tagline = 'Expectation is heavier than fabric.' -%}
+  {%- assign accent = '#F8F4F4' -%}
+  {%- assign accent_deep = '#D8A620' -%}
+  {%- assign rule = 'rgba(248,244,244,0.45)' -%}
+  {%- assign ground = '#111111' -%}
+  {%- assign plate = '#171717' -%}
+  {%- assign dark = true -%}
+{%- elsif collection.handle contains 'addis' -%}
+  {%- assign badge = 'Coming soon' -%}
+  {%- assign tagline = 'City life, rooted in home.' -%}
+  {%- assign accent = '#2E6E9E' -%}
+  {%- assign accent_deep = '#2E6E9E' -%}
+  {%- assign rule = '#6BADE6' -%}
+  {%- assign ground = '#EEF4FA' -%}
+  {%- assign plate = '#DCE7F1' -%}
+{%- elsif collection.handle contains 'meqenet' -%}
+  {%- assign badge = 'The founding line' -%}
+  {%- assign tagline = 'Try. Fail. Fix the መቀነት. Try again.' -%}
 {%- endif -%}
 
-<section class="sec" style="padding-top:44px">
-  <nav class="crumbs">
-    <a href="{{ routes.all_products_collection_url }}">Shop All</a>
-    <span>/</span><span>{{ collection.title }}</span>
-  </nav>
+{%- if section.settings.badge != blank -%}{%- assign badge = section.settings.badge -%}{%- endif -%}
+{%- if section.settings.tagline != blank -%}{%- assign tagline = section.settings.tagline -%}{%- endif -%}
 
-  <h1 class="coll__h1">{{ collection.title }}</h1>
-  {% if collection.description != blank %}
-    <div class="coll__lede">{{ collection.description }}</div>
-  {% endif %}
+<section class="chead{% if dark %} chead--dark{% endif %}" style="background:{{ ground }}">
+  <div class="chead__in">
+    <div>
+      <nav class="crumbs">
+        <a href="{{ routes.all_products_collection_url }}">Shop All</a>
+        <span>/</span><span>{{ collection.title }}</span>
+      </nav>
+      {% if badge != blank %}
+        <span class="chead__badge" style="background:{% if dark %}#F8F4F4{% else %}{{ accent_deep }}{% endif %};color:{% if dark %}#111111{% else %}#F6F3EC{% endif %}">{{ badge }}</span>
+      {% endif %}
+      <h1 class="chead__h1">{{ collection.title }}</h1>
+      {% if tagline != blank %}
+        <p class="chead__tag" style="color:{{ accent_deep }}">{{ tagline }}</p>
+      {% endif %}
+      {% if collection.description != blank %}
+        <div class="chead__lede" style="border-left-color:{{ rule }}">{{ collection.description }}</div>
+      {% endif %}
+    </div>
+    <div class="chead__plate" style="border-color:{% if dark %}rgba(248,244,244,0.28){% else %}{{ accent_deep }}66{% endif %};background:{% if dark %}#0C0C0C{% else %}#FDFBF3{% endif %}">
+      <div class="chead__plate-in" style="background:{{ plate }};color:{{ accent_deep }}">
+        {% if collection.image %}
+          <img src="{{ collection.image | image_url: width: 1100 }}" alt="{{ collection.title | escape }}">
+        {% else %}
+          <span class="chead__plate-note">Collection artwork</span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="divider" style="padding:20px 0 34px">
+<section class="sec" style="padding-top:34px">
+  <div class="divider" style="padding:0 0 34px">
     <div class="tilat-rule tilat"></div>
-    <span class="coll__count">{{ collection.products_count }} {% if collection.products_count == 1 %}piece{% else %}pieces{% endif %}</span>
+    <span class="coll__count">{% if collection.products_count == 0 %}No pieces yet{% else %}{{ collection.products_count }} {% if collection.products_count == 1 %}piece{% else %}pieces{% endif %}{% endif %}</span>
   </div>
 
   {% paginate collection.products by 24 %}
@@ -49,11 +106,27 @@
         </nav>
       {% endif %}
     {% else %}
-      <p class="prod__empty">Nothing in this collection yet. Products added in Printful appear here automatically.</p>
+      <div class="cwait">
+        <p class="cwait__k">Be the first to know when {{ collection.title }} drops.</p>
+        {% form 'customer' %}
+          <input type="hidden" name="contact[tags]" value="{{ collection.handle }}-waitlist">
+          <div class="news">
+            <input type="email" name="contact[email]" placeholder="you@email.com" required aria-label="Email">
+            <button type="submit" style="color:{{ accent_deep }};border-color:{{ accent_deep }}">Notify me</button>
+          </div>
+          {% if form.posted_successfully? %}<p class="cwait__ok" style="color:{{ accent_deep }}">Thank you &mdash; we'll write when it lands.</p>{% endif %}
+        {% endform %}
+      </div>
     {% endif %}
   {% endpaginate %}
 </section>
 
 {% schema %}
-{ "name": "Collection", "settings": [] }
+{
+  "name": "Collection",
+  "settings": [
+    { "type": "text", "id": "badge", "label": "Badge override (all collections)" },
+    { "type": "text", "id": "tagline", "label": "Tagline override (all collections)" }
+  ]
+}
 {% endschema %}
