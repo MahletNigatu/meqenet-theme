@@ -1,11 +1,11 @@
 {
   "sections": {
     "main": {
-      "type": "placeholder",
+      "type": "main-product",
       "settings": {
-        "kicker": "Product",
-        "heading": "Product page coming next",
-        "body": "This home-page preview theme does not include the product template yet. That is the next build."
+        "accent": "#C4695A",
+        "ship_note": "Made to order. Ships in 2–5 business days.",
+        "fulfil_note": "Each piece is printed and sewn when you order it, so nothing sits in a warehouse and nothing goes to waste."
       }
     }
   },

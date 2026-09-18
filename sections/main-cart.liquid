@@ -1,0 +1,42 @@
+<main class="sec" style="max-width:1000px;padding-top:52px">
+  <h1 class="coll__h1">Your Cart</h1>
+  {% if cart.item_count == 0 %}
+    <div class="cart__empty">
+      <p>Nothing tied up yet.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn">Shop All</a>
+    </div>
+  {% else %}
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+      {% for line in cart.items %}
+        <div class="cline">
+          <div class="cline__img">
+            {% if line.image %}<img src="{{ line.image | image_url: width: 260 }}" alt="{{ line.title | escape }}">{% endif %}
+          </div>
+          <div class="cline__body">
+            <h4><a href="{{ line.url }}">{{ line.product.title }}</a></h4>
+            {% unless line.variant.title contains 'Default' %}<p class="cline__meta">{{ line.variant.title }}</p>{% endunless %}
+            <p class="cline__meta">{{ line.original_price | money }} each</p>
+            <div class="cline__qty">
+              <label for="q{{ forloop.index }}">Qty</label>
+              <input id="q{{ forloop.index }}" type="number" name="updates[]" value="{{ line.quantity }}" min="0" inputmode="numeric">
+              <a href="{{ line.url_to_remove }}" class="cline__rm">Remove</a>
+            </div>
+          </div>
+          <p class="cline__total">{{ line.final_line_price | money }}</p>
+        </div>
+      {% endfor %}
+
+      <div class="cart__foot">
+        <button type="submit" name="update" class="link-underline" style="background:transparent;border:0;border-bottom:1px solid rgba(17,17,17,0.3);cursor:pointer">Update cart</button>
+        <div class="cart__sum">
+          <p class="cart__sub"><span>Subtotal</span><span>{{ cart.total_price | money }}</span></p>
+          <p class="cart__note">Shipping and tax calculated at checkout.</p>
+          <button type="submit" name="checkout" class="btn btn--block">Checkout</button>
+        </div>
+      </div>
+    </form>
+  {% endif %}
+</main>
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

@@ -1,11 +1,10 @@
 {
   "sections": {
     "main": {
-      "type": "placeholder",
+      "type": "main-list-collections",
       "settings": {
-        "kicker": "Collections",
-        "heading": "All collections",
-        "body": "Coming with the next build."
+        "heading": "Collections",
+        "sub": "Four lines, four visual worlds, one brand."
       }
     }
   },

@@ -1,28 +1,39 @@
-MEQENET - Shopify theme, home page preview (v0.1)
+MEQENET - Shopify theme v0.2
 
-WHAT THIS IS
-A working Online Store 2.0 theme covering the home page, header and footer.
-Product, collection, cart and search pages are deliberate placeholders - they are
-the next build. Everything here is the real design, not a mockup.
+NEW IN v0.2
+- Product page: sliding gallery with arrows and diamond dots, colour swatches,
+  size buttons, quantity, add to cart. All wired to real Shopify variants;
+  picking a colour swings the gallery to that variant's photo.
+- Collection page: product grid on the sky-tilat mat, pagination, sold-out flag.
+- Collections list page and the cart page.
+- Home page, header and footer unchanged from v0.1.
 
-HOW TO INSTALL
-1. Zip the CONTENTS of this folder. The zip must contain layout/, sections/,
-   templates/, assets/, config/, locales/ at its top level, NOT a folder named
-   shopify-theme.
-2. Shopify admin -> Online Store -> Themes -> Add theme -> Upload zip file.
-3. Do NOT publish it. Click the three dots -> Preview.
+FILES CHANGED SINCE v0.1
+  assets/base.css                       (appended - product, collection, cart styles)
+  assets/product.js                     (new)
+  snippets/swatch.liquid                (new - colour name to hex)
+  sections/main-product.liquid          (new)
+  sections/main-collection.liquid       (new)
+  sections/main-list-collections.liquid (new)
+  sections/main-cart.liquid             (new)
+  templates/product.json                (replaced)
+  templates/collection.json             (replaced)
+  templates/list-collections.json       (replaced)
+  templates/cart.json                   (replaced)
 
-FIRST TIME SETUP (about two minutes, in the theme editor)
-- Header section -> Sash mark -> upload sash-knot.png
-- Hero section -> Brand image -> upload brand-hero.png
-- Collection tiles -> tile 1 -> Tile art -> upload tee-meqenet-mauve.png
-- Collection tiles -> each tile -> Shopify collection -> link it to the real
-  collection once that exists in Shopify
-- Featured products -> Source collection -> pick a collection.
-  Until then the section shows a note instead of products.
+Everything else is identical to v0.1 - only the files above need to land in the repo.
 
-The three images are in this folder under images-to-upload/.
+HOW IT REACHES THE STORE
+The repo is connected, so drop these files into meqenet-theme on the main
+branch and Shopify picks them up within a minute. Keep previewing, do not
+publish yet.
 
-NAVIGATION
-The header and footer read Shopify menus. Create them under
-Online Store -> Navigation, named "main-menu" and "footer".
+COLOUR SWATCHES
+snippets/swatch.liquid maps Printful colour names to hex by keyword - natural,
+black, olive, sky, navy, salmon, mauve, rust and so on. If a swatch shows up
+grey, its colour name is not in the list; tell me the exact name Printful uses
+and I will add it.
+
+STILL TO COME
+  Our Story page, the Addis Abeba coming-soon page with email capture,
+  search, and checkout branding.

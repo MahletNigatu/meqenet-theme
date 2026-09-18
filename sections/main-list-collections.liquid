@@ -1,0 +1,29 @@
+<section class="sec" style="padding-top:44px">
+  <h1 class="coll__h1">{{ section.settings.heading }}</h1>
+  {% if section.settings.sub != blank %}<p class="sec__sub">{{ section.settings.sub }}</p>{% endif %}
+  <div class="coll-grid">
+    {% for coll in collections %}
+      <a href="{{ coll.url }}" class="coll">
+        <div class="coll__img">
+          {% if coll.featured_image %}<img src="{{ coll.featured_image | image_url: width: 900 }}" alt="{{ coll.title | escape }}" loading="lazy">{% endif %}
+        </div>
+        <div class="coll__body">
+          <div class="coll__top">
+            <h3>{{ coll.title }}</h3>
+            <span class="pill" style="color:#C4695A">{{ coll.products_count }}</span>
+          </div>
+          <p>{{ coll.description | strip_html | truncate: 140 }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Collections" },
+    { "type": "text", "id": "sub", "label": "Subhead", "default": "Four lines, four visual worlds, one brand." }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,24 @@
+{%- assign v = value | downcase -%}
+{%- assign hex = '#CCCCCC' -%}
+{%- if v contains 'natural' or v contains 'cream' or v contains 'ivory' or v contains 'bone' -%}{%- assign hex = '#EFE7D6' -%}
+{%- elsif v contains 'white' -%}{%- assign hex = '#FFFFFF' -%}
+{%- elsif v contains 'black' -%}{%- assign hex = '#141414' -%}
+{%- elsif v contains 'charcoal' or v contains 'dark grey' or v contains 'dark gray' -%}{%- assign hex = '#3A3A3A' -%}
+{%- elsif v contains 'heather' or v contains 'grey' or v contains 'gray' or v contains 'athletic' -%}{%- assign hex = '#B3B0AA' -%}
+{%- elsif v contains 'olive' or v contains 'military' or v contains 'army' -%}{%- assign hex = '#6A7B3D' -%}
+{%- elsif v contains 'forest' or v contains 'green' -%}{%- assign hex = '#3F5233' -%}
+{%- elsif v contains 'sky' or v contains 'light blue' or v contains 'carolina' -%}{%- assign hex = '#6BADE6' -%}
+{%- elsif v contains 'navy' or v contains 'blue' -%}{%- assign hex = '#26456B' -%}
+{%- elsif v contains 'salmon' or v contains 'peach' or v contains 'coral' -%}{%- assign hex = '#E98F8A' -%}
+{%- elsif v contains 'mauve' or v contains 'lilac' or v contains 'lavender' -%}{%- assign hex = '#B98FA6' -%}
+{%- elsif v contains 'rust' or v contains 'terracotta' or v contains 'brick' or v contains 'clay' -%}{%- assign hex = '#C4695A' -%}
+{%- elsif v contains 'maroon' or v contains 'burgundy' or v contains 'wine' -%}{%- assign hex = '#6E2B33' -%}
+{%- elsif v contains 'red' -%}{%- assign hex = '#B3342C' -%}
+{%- elsif v contains 'mustard' or v contains 'gold' or v contains 'yellow' -%}{%- assign hex = '#D8A620' -%}
+{%- elsif v contains 'sand' or v contains 'khaki' or v contains 'tan' or v contains 'beige' -%}{%- assign hex = '#CBB79A' -%}
+{%- elsif v contains 'brown' or v contains 'chocolate' or v contains 'espresso' -%}{%- assign hex = '#5A4232' -%}
+{%- elsif v contains 'pink' -%}{%- assign hex = '#E4A7BC' -%}
+{%- elsif v contains 'purple' -%}{%- assign hex = '#6A4C86' -%}
+{%- elsif v contains 'orange' -%}{%- assign hex = '#D97A2B' -%}
+{%- endif -%}
+{{ hex }}

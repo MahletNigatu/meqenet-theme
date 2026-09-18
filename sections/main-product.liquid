@@ -1,0 +1,173 @@
+{%- assign coll = product.collections.first -%}
+{%- assign accent = section.settings.accent -%}
+{%- if coll.handle contains 'society' -%}{%- assign accent = '#8E8E8E' -%}
+{%- elsif coll.handle contains 'kaldi' -%}{%- assign accent = '#2E6E9E' -%}
+{%- elsif coll.handle contains 'addis' -%}{%- assign accent = '#2E6E9E' -%}
+{%- endif -%}
+
+<main class="pdp">
+  <nav class="crumbs">
+    <a href="{{ routes.all_products_collection_url }}">Shop All</a>
+    {% if coll %}<span>/</span><a href="{{ coll.url }}">{{ coll.title }}</a>{% endif %}
+    <span>/</span><span>{{ product.title }}</span>
+  </nav>
+
+  <div class="pdp__grid">
+    <div>
+      <div class="gal" data-gallery data-count="{{ product.media.size | default: 1 }}" tabindex="0">
+        <div class="prod__mat tilat-sky" style="padding:9px">
+          <div class="gal__win">
+            <div class="gal__track" data-track>
+              {% if product.media.size > 0 %}
+                {% for media in product.media %}
+                  <div class="gal__cell">
+                    <img src="{{ media | image_url: width: 1400 }}"
+                         srcset="{{ media | image_url: width: 700 }} 700w, {{ media | image_url: width: 1400 }} 1400w"
+                         sizes="(min-width:1000px) 620px, 100vw"
+                         alt="{{ media.alt | default: product.title | escape }}"
+                         {% unless forloop.first %}loading="lazy"{% endunless %}>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <div class="gal__cell"><div class="gal__blank">No photo yet</div></div>
+              {% endif %}
+            </div>
+            {% if product.media.size > 1 %}
+              <button type="button" class="gal__arrow gal__arrow--l" data-prev aria-label="Previous photo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 6l-6 6 6 6"/></svg>
+              </button>
+              <button type="button" class="gal__arrow gal__arrow--r" data-next aria-label="Next photo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            {% endif %}
+          </div>
+        </div>
+        {% if product.media.size > 1 %}
+          <div class="gal__dots">
+            {% for media in product.media %}
+              <button type="button" data-dot aria-label="Photo {{ forloop.index }}"></button>
+            {% endfor %}
+          </div>
+        {% endif %}
+        <p class="gal__note" data-note></p>
+      </div>
+    </div>
+
+    <div>
+      {% if coll %}<span class="tag" style="color:{{ accent }}">{{ coll.title }}</span>{% endif %}
+      <h1 class="pdp__title">{{ product.title }}</h1>
+      <p class="pdp__price" data-price>{{ product.selected_or_first_available_variant.price | money }}</p>
+
+      {% if product.description != blank %}
+        <div class="pdp__desc">{{ product.description }}</div>
+      {% endif %}
+
+      <hr class="hr">
+
+      {% form 'product', product, data-product-form: '', class: 'pdp__form' %}
+        <script type="application/json" data-variants>
+          [
+            {% for v in product.variants %}
+            {
+              "id": {{ v.id }},
+              "options": {{ v.options | json }},
+              "price": {{ v.price | money | json }},
+              "available": {{ v.available }},
+              "title": {{ v.title | json }},
+              "sku": {{ v.sku | json }},
+              "image_index": {% if v.image %}{{ v.image.position | minus: 1 }}{% else %}-1{% endif %}
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]
+        </script>
+
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            {%- assign oname = option.name | downcase -%}
+            {%- assign is_color = false -%}
+            {%- if oname contains 'color' or oname contains 'colour' -%}{%- assign is_color = true -%}{%- endif -%}
+            <div class="opt" data-option-index="{{ forloop.index0 }}">
+              <div class="opt__head">
+                <p class="opt__label">{{ option.name }}</p>
+                <p class="opt__current" data-option-current></p>
+              </div>
+              <div class="opt__row{% if is_color %} opt__row--swatch{% endif %}">
+                {% for value in option.values %}
+                  {%- assign on = false -%}
+                  {%- if option.selected_value == value -%}{%- assign on = true -%}{%- endif -%}
+                  {% if is_color %}
+                    {%- capture hex %}{% render 'swatch', value: value %}{% endcapture -%}
+                    <button type="button" class="sw" data-value="{{ value | escape }}" aria-pressed="{{ on }}" title="{{ value | escape }}" aria-label="{{ value | escape }}">
+                      <span style="background:{{ hex | strip }}"></span>
+                    </button>
+                  {% else %}
+                    <button type="button" class="szopt" data-value="{{ value | escape }}" aria-pressed="{{ on }}">{{ value }}</button>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endunless %}
+
+        <p class="opt__label" style="margin-bottom:12px">Quantity</p>
+        <div class="qty">
+          <button type="button" data-qty-step="-1" aria-label="Decrease">&minus;</button>
+          <span data-qty-view>1</span>
+          <button type="button" data-qty-step="1" aria-label="Increase">+</button>
+        </div>
+        <input type="hidden" name="quantity" value="1" data-qty>
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" data-variant-id>
+
+        <button type="submit" class="btn btn--block" data-add>
+          <span data-add-label>Add to cart</span>
+        </button>
+      {% endform %}
+
+      {% if section.settings.ship_note != blank %}
+        <p class="pdp__ship">{{ section.settings.ship_note }}</p>
+      {% endif %}
+
+      <div class="pdp__pod">
+        <p class="pdp__pod-k">Printed on demand</p>
+        <p class="pdp__pod-b">{{ section.settings.fulfil_note }}</p>
+        <p class="pdp__pod-sku">Variant &middot; <span data-sku>{{ product.selected_or_first_available_variant.sku | default: product.selected_or_first_available_variant.title }}</span></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% if coll and coll.products.size > 1 %}
+  <section class="band">
+    <div class="band__in">
+      <div class="band__head"><div><h2>More from {{ coll.title }}</h2></div>
+        <a href="{{ coll.url }}" class="link-underline">Shop all</a></div>
+      <div class="prod-grid">
+        {% assign shown = 0 %}
+        {% for p in coll.products limit: 5 %}
+          {% unless p.id == product.id or shown >= 4 %}
+            {% assign shown = shown | plus: 1 %}
+            <a href="{{ p.url }}" class="prod">
+              <div class="prod__mat tilat-sky"><div class="prod__img">
+                {% if p.featured_image %}<img src="{{ p.featured_image | image_url: width: 700 }}" alt="{{ p.title | escape }}" loading="lazy">{% endif %}
+              </div></div>
+              <div class="prod__body"><h4>{{ p.title }}</h4><p class="prod__meta">{{ p.price | money }}</p></div>
+            </a>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<script src="{{ 'product.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "color", "id": "accent", "label": "Default accent", "default": "#C4695A" },
+    { "type": "text", "id": "ship_note", "label": "Shipping note", "default": "Made to order. Ships in 2–5 business days." },
+    { "type": "textarea", "id": "fulfil_note", "label": "Fulfilment note", "default": "Each piece is printed and sewn when you order it, so nothing sits in a warehouse and nothing goes to waste." }
+  ]
+}
+{% endschema %}

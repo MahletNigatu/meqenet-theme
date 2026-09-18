@@ -1,0 +1,59 @@
+{%- assign accent = '#C4695A' -%}
+{%- if collection.handle contains 'society' -%}{%- assign accent = '#8E8E8E' -%}
+{%- elsif collection.handle contains 'kaldi' -%}{%- assign accent = '#2E6E9E' -%}
+{%- elsif collection.handle contains 'addis' -%}{%- assign accent = '#2E6E9E' -%}
+{%- endif -%}
+
+<section class="sec" style="padding-top:44px">
+  <nav class="crumbs">
+    <a href="{{ routes.all_products_collection_url }}">Shop All</a>
+    <span>/</span><span>{{ collection.title }}</span>
+  </nav>
+
+  <h1 class="coll__h1">{{ collection.title }}</h1>
+  {% if collection.description != blank %}
+    <div class="coll__lede">{{ collection.description }}</div>
+  {% endif %}
+
+  <div class="divider" style="padding:20px 0 34px">
+    <div class="tilat-rule tilat"></div>
+    <span class="coll__count">{{ collection.products_count }} {% if collection.products_count == 1 %}piece{% else %}pieces{% endif %}</span>
+  </div>
+
+  {% paginate collection.products by 24 %}
+    {% if collection.products.size > 0 %}
+      <div class="prod-grid">
+        {% for product in collection.products %}
+          <a href="{{ product.url }}" class="prod">
+            <div class="prod__mat tilat-sky">
+              <div class="prod__img">
+                {% if product.featured_image %}
+                  <img src="{{ product.featured_image | image_url: width: 700 }}"
+                       alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy">
+                {% endif %}
+                {% unless product.available %}<span class="prod__flag">Sold out</span>{% endunless %}
+              </div>
+            </div>
+            <div class="prod__body">
+              <h4>{{ product.title }}</h4>
+              <p class="prod__meta">{{ product.price | money }}{% if product.type != blank %} &middot; {{ product.type }}{% endif %}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+      {% if paginate.pages > 1 %}
+        <nav class="pager">
+          {% if paginate.previous %}<a href="{{ paginate.previous.url }}" class="link-underline">Previous</a>{% endif %}
+          <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          {% if paginate.next %}<a href="{{ paginate.next.url }}" class="link-underline">Next</a>{% endif %}
+        </nav>
+      {% endif %}
+    {% else %}
+      <p class="prod__empty">Nothing in this collection yet. Products added in Printful appear here automatically.</p>
+    {% endif %}
+  {% endpaginate %}
+</section>
+
+{% schema %}
+{ "name": "Collection", "settings": [] }
+{% endschema %}

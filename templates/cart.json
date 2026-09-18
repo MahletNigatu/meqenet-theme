@@ -1,12 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "placeholder",
-      "settings": {
-        "kicker": "Cart",
-        "heading": "Cart coming next",
-        "body": "Shopify's own cart and checkout take over here once the full theme is in."
-      }
+      "type": "main-cart"
     }
   },
   "order": [
