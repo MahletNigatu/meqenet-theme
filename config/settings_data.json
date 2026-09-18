@@ -1,61 +1,7 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
     "color_bg": "#F6F3EC",
     "color_paper": "#FDFBF3",
-    "color_gold": "#D8A620",
-    "sections": {
-      "header": {
-        "type": "header",
-        "settings": {
-          "amharic": "መቀነት",
-          "use_menu": false,
-          "menu": "main-menu"
-        }
-      },
-      "footer": {
-        "type": "footer",
-        "settings": {
-          "amharic": "መቀነት",
-          "blurb": "A women's empowerment lifestyle brand built on the Ethiopian sash.",
-          "news_title": "The list",
-          "news_body": "New drops and collection news. Nothing else.",
-          "tagline": "Tie Yourself Together."
-        }
-      }
-    },
-    "content_for_index": [],
-    "blocks": {
-      "15683396631634586217": {
-        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
-        "disabled": false,
-        "settings": {
-          "greeting_message": "",
-          "show_featured_products": true,
-          "featured_products": [],
-          "background_color": "#fbede8",
-          "font_color": "#0c0c0c",
-          "agent_invert_activator_colors": false,
-          "button_color": "#000000",
-          "button_icon": "chat_bubble",
-          "button_text": "chat_with_us",
-          "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "lowest",
-          "agent_inherit_fonts": true,
-          "agent_font": "system_ui_n4",
-          "agent_font_size": 14,
-          "agent_activator_font_size": 13,
-          "agent_border_radius": 16
-        }
-      }
-    }
+    "color_gold": "#D8A620"
   }
 }

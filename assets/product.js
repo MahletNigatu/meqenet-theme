@@ -97,11 +97,42 @@
     paint();
   }
 
+  function foldSizeGuide(desc){
+    if (!desc || desc.getAttribute('data-folded')) return;
+    var tables = Array.prototype.slice.call(desc.querySelectorAll('table'));
+    if (!tables.length) return;
+    desc.setAttribute('data-folded', '1');
+
+    // drop a bare "Size guide" label that precedes the tables
+    Array.prototype.slice.call(desc.children).forEach(function(el){
+      if (el.tagName !== 'TABLE' && /^\s*size guide\s*:?\s*$/i.test(el.textContent)) el.remove();
+    });
+
+    var d = document.createElement('details');
+    d.className = 'sizefold';
+    var s = document.createElement('summary');
+    s.textContent = 'Size guide';
+    d.appendChild(s);
+    var body = document.createElement('div');
+    body.className = 'sizefold__body';
+    d.appendChild(body);
+    tables[0].parentNode.insertBefore(d, tables[0]);
+    tables.forEach(function(t){
+      var wrap = document.createElement('div');
+      wrap.className = 'sizefold__scroll';
+      t.parentNode.insertBefore(wrap, t);
+      wrap.appendChild(t);
+      body.appendChild(wrap);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.pdp__desc').forEach(foldSizeGuide);
     document.querySelectorAll('[data-gallery]').forEach(initGallery);
     document.querySelectorAll('[data-product-form]').forEach(initVariants);
   });
   document.addEventListener('shopify:section:load', function(){
+    document.querySelectorAll('.pdp__desc').forEach(foldSizeGuide);
     document.querySelectorAll('[data-gallery]').forEach(initGallery);
     document.querySelectorAll('[data-product-form]').forEach(initVariants);
   });

@@ -1,4 +1,9 @@
-{%- assign coll = product.collections.first -%}
+{%- assign coll = nil -%}
+{%- for c in product.collections -%}
+  {%- unless c.handle == 'frontpage' or c.handle == 'all' or coll -%}
+    {%- assign coll = c -%}
+  {%- endunless -%}
+{%- endfor -%}
 {%- assign accent = section.settings.accent -%}
 {%- if coll.handle contains 'society' -%}{%- assign accent = '#8E8E8E' -%}
 {%- elsif coll.handle contains 'kaldi' -%}{%- assign accent = '#2E6E9E' -%}

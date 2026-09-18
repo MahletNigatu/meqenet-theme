@@ -1,0 +1,164 @@
+MEQENET — text for Settings → Policies
+Paste each block into the matching policy. Skip Privacy (Shopify's automated
+one is already published and stays current with regulations).
+
+Replace [YOUR EMAIL] and [YOUR ADDRESS] before saving.
+
+
+===============================================================================
+CONTACT INFORMATION  (marked Required — do this one first)
+===============================================================================
+
+MEQENET
+[YOUR LLC LEGAL NAME]
+[YOUR ADDRESS]
+Maryland, United States
+
+Email: [YOUR EMAIL]
+
+We answer within one business day. For order questions, include your order
+number — it begins with a # and is in your confirmation email.
+
+
+===============================================================================
+RETURN AND REFUND POLICY
+===============================================================================
+
+Every MEQENET piece is printed and sewn after you order it. Nothing is held in
+stock, which means a returned garment cannot be resold. Our policy is built
+around that.
+
+Damaged, defective or misprinted. If your order arrives damaged, misprinted, or
+materially different from what was shown, write to us within 30 days of
+delivery with a photograph of the item and of the packing slip. We will remake
+and reship it at no cost, or refund it in full, whichever you prefer. You do
+not need to send the original back.
+
+Lost in transit. If tracking shows no movement for ten business days, or shows
+delivery to an address you did not enter, contact us and we will remake the
+order.
+
+Wrong size ordered. Because the piece was made to your selection, a size change
+is not a defect. Contact us within 30 days and we will work something out in
+good faith, though we cannot promise a free replacement. The size guide on the
+Contact page is the best way to avoid this.
+
+Change of mind. Email us within two hours of ordering and we can usually cancel
+before production begins. Once production has started the piece exists only for
+you and cannot be cancelled.
+
+Incorrect address. If a parcel returns to us because the address was wrong or
+incomplete, we will reship once you confirm the correct address. Reshipping is
+charged at cost.
+
+How refunds are issued. Approved refunds return to the original payment method.
+Your bank or card issuer controls the timing, typically five to ten business
+days after we process it.
+
+Sale items and gift cards. Sale items follow this same policy. Gift cards are
+not refundable.
+
+How to start. Use the form on our Contact page, or reply to your order
+confirmation email. Include your order number.
+
+
+===============================================================================
+SHIPPING POLICY
+===============================================================================
+
+Production time. Two to five business days for printed apparel and accessories.
+Embroidered items can take one to two days longer. Production time is separate
+from transit time, and orders placed on a weekend begin production the next
+business day.
+
+Transit time. Domestic orders typically arrive three to five business days after
+shipping. International orders vary widely by destination, commonly ten to
+twenty business days.
+
+Rates. Shipping is calculated at checkout from your address and the contents of
+your order. The amount shown at checkout is the amount charged.
+
+Tracking. A tracking link is emailed the moment your order ships. Carriers can
+take 24 to 48 hours to show the first scan; a link that looks inactive at first
+is normal.
+
+Split shipments. Orders containing several item types may be produced in
+different facilities and arrive separately, at no extra charge to you.
+
+Customs, duties and import taxes. International orders may attract import duties
+and taxes set by the destination country and collected by the carrier on
+delivery. These charges are not ours, are not included in your order total, and
+cannot be refunded by us. Refused parcels returning to us are treated as an
+incorrect-address case.
+
+Where we ship. Anywhere our checkout accepts an address. If your country does
+not appear at checkout, we cannot currently ship there.
+
+Delays. Weather, customs inspections and peak-season carrier volume can add time
+beyond these estimates. We will tell you what we know if you ask.
+
+
+===============================================================================
+TERMS OF SERVICE
+===============================================================================
+
+By using this store or placing an order you agree to what follows.
+
+The store. This site is operated by MEQENET. "We" and "us" mean the business;
+"you" means the visitor or customer.
+
+Orders. Placing an order is an offer to buy, which we may accept or decline. We
+may decline or cancel an order that appears fraudulent, that we cannot produce,
+or where a price or description was published in error. If we cancel a paid
+order we refund it in full.
+
+Prices and descriptions. Prices are in the currency shown at checkout and may
+change without notice. We work to describe products accurately, but colours
+shown on a screen are approximate and a printed garment will never match a
+monitor exactly.
+
+Made to order. Items are produced after purchase. See our refund policy for what
+this means for returns.
+
+Payment. Payments are processed by Shopify Payments and the card networks. By
+submitting payment details you confirm you are authorised to use that method.
+
+Intellectual property. All artwork, designs, photographs, the MEQENET name and
+the Amharic wordmark are owned by us and may not be reproduced, printed, resold
+or used commercially without written permission. Buying a garment does not
+transfer any rights in the design on it.
+
+Your content. If you send us photographs, ideas or feedback, we may use them to
+improve the store and, unless you tell us otherwise, may quote a review or
+repost a photograph you sent us. You keep ownership of what you sent.
+
+Acceptable use. Do not use the store unlawfully, attempt to breach its security,
+scrape it, or resell our products as your own.
+
+Third-party services. The store depends on Shopify, our fulfilment partner and
+shipping carriers. We are not responsible for their independent acts or
+outages, though we will help you sort out anything that goes wrong with your
+order.
+
+Liability. To the extent the law allows, our liability for any order is limited
+to the amount you paid for it. We are not liable for indirect or consequential
+loss. Nothing here limits rights you have under consumer law that cannot be
+limited.
+
+Governing law. These terms are governed by the laws of the State of Maryland,
+United States, without regard to conflict-of-law rules.
+
+Changes. We may update these terms. The version on this page at the time you
+order is the one that applies to that order.
+
+Contact. Questions about these terms go through the form on our Contact page.
+
+
+===============================================================================
+SKIP THESE
+===============================================================================
+
+Privacy policy   Already published and automated by Shopify. Leave it.
+Legal notice     Optional. Skip.
+Return rules     The block at the top of the Policies screen switches on
+                 self-serve returns, which doesn't suit made-to-order. Skip.

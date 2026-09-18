@@ -5,16 +5,41 @@
     {% for block in section.blocks %}
       {% assign coll = collections[block.settings.collection] %}
       {% assign style = block.settings.style %}
-      {% assign href = coll.url | default: '#' %}
+
+      {%- comment -%} no collection linked: find it by the tile's own title {%- endcomment -%}
+      {%- unless coll -%}
+        {%- assign tkey = block.settings.title | downcase | truncate: 5, '' -%}
+        {%- for c in collections -%}
+          {%- assign ck = c.handle | append: ' ' | append: c.title | downcase -%}
+          {%- if ck contains tkey and c.handle != 'all' and coll == nil -%}
+            {%- assign coll = c -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endunless -%}
+
+      {%- comment -%} one src, resolved once, only rendered if real {%- endcomment -%}
+      {%- capture src -%}
+        {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 900 }}
+        {%- elsif coll.image -%}{{ coll.image | image_url: width: 900 }}
+        {%- elsif block.settings.fallback != blank -%}{{ block.settings.fallback | asset_url }}
+        {%- endif -%}
+      {%- endcapture -%}
+      {%- assign src = src | strip -%}
+
+      {% if style == 'soon' %}
+        {% assign href = '/pages/addis-abeba' %}
+      {% elsif coll %}
+        {% assign href = coll.url %}
+      {% else %}
+        {% assign href = routes.all_products_collection_url %}
+      {% endif %}
       <a href="{{ href }}" class="coll{% if style == 'dark' %} coll--dark{% endif %}{% if style == 'soon' %} coll--soon{% endif %}" {{ block.shopify_attributes }}>
         {% if style == 'soon' %}<span class="flag" style="background:{{ block.settings.accent }}">Coming Soon</span>{% endif %}
         <div class="coll__img"{% if style == 'light' %} style="background:{{ block.settings.tint }}"{% endif %}>
-          {% if block.settings.image %}
-            <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
-          {% elsif coll.featured_image %}
-            <img src="{{ coll.featured_image | image_url: width: 900 }}" alt="{{ coll.title | escape }}" loading="lazy">
-          {% elsif block.settings.fallback != blank %}
-            <img src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+          {% if src != blank %}
+            <img src="{{ src }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+          {% else %}
+            <span class="coll__ph" style="color:{% if style == 'dark' %}rgba(248,244,244,0.55){% else %}{{ block.settings.accent }}{% endif %}">{{ block.settings.title }}</span>
           {% endif %}
         </div>
         <div class="coll__body">
