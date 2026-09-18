@@ -345,3 +345,12 @@ p{margin:0 0 1em}
 .cwait{max-width:460px}
 .cwait__k{font-family:var(--head);font-size:19px;margin:0 0 12px}
 .cwait__ok{margin:10px 0 0;font-size:13px}
+
+/* ---- shop all: line index in place of the plate ---- */
+.cindex{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+.cindex__row{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:20px 4px 20px 20px;border-bottom:1px solid var(--rule);border-left:2px solid;color:var(--ink)}
+.cindex__row:hover{background:rgba(216,166,32,0.07);color:var(--ink)}
+.cindex__name{font-family:var(--head);font-size:23px;letter-spacing:0.02em}
+.cindex__row:hover .cindex__name{color:var(--gold-deep)}
+.cindex__n{font-family:var(--head);font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-mute);font-variant-numeric:tabular-nums;flex:0 0 auto}
+.cindex__note{margin:18px 0 0;font-size:13px;font-style:italic;color:var(--ink-mute)}

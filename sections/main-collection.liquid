@@ -10,8 +10,19 @@
 {%- assign lede = '' -%}
 
 {%- assign hkey = collection.handle | append: ' ' | append: collection.title | downcase -%}
+{%- assign is_all = false -%}
+{%- if collection.handle == 'all' or collection.handle == '' -%}{%- assign is_all = true -%}{%- endif -%}
 
-{%- if hkey contains 'kaldi' -%}
+{%- if is_all -%}
+  {%- assign badge = 'Everything, in one place' -%}
+  {%- assign tagline = 'Four lines. One thread.' -%}
+  {%- assign accent = '#D8A620' -%}
+  {%- assign accent_deep = '#8C670F' -%}
+  {%- assign rule = '#D8A620' -%}
+  {%- assign ground = '#F6F3EC' -%}
+  {%- assign plate = '#EFEADB' -%}
+  {%- capture lede -%}<p>Every piece MEQENET makes, gathered here. Each line takes the sash somewhere different &mdash; the founding line into resilience, Kaldi's Goat into coffee, Society into the weight of expectation, Addis Abeba into the city.</p><p>Wear whichever one you needed today.</p>{%- endcapture -%}
+{%- elsif hkey contains 'kaldi' -%}
   {%- assign badge = 'Coffee first' -%}
   {%- assign tagline = 'Before anything else, the cup.' -%}
   {%- capture lede -%}<p>A nod to the legendary Ethiopian goat herder who noticed his goats wouldn't sleep after eating a certain red berry &mdash; and gave the world coffee by accident.</p><p>For the ones who need their cup before they need anything.</p>{%- endcapture -%}
@@ -54,14 +65,16 @@
 <section class="chead{% if dark %} chead--dark{% endif %}" style="background:{{ ground }}">
   <div class="chead__in">
     <div>
-      <nav class="crumbs">
-        <a href="{{ routes.all_products_collection_url }}">Shop All</a>
-        <span>/</span><span>{{ collection.title }}</span>
-      </nav>
+      {% unless is_all %}
+        <nav class="crumbs">
+          <a href="{{ routes.all_products_collection_url }}">Shop All</a>
+          <span>/</span><span>{{ collection.title }}</span>
+        </nav>
+      {% endunless %}
       {% if badge != blank %}
         <span class="chead__badge" style="background:{% if dark %}#F8F4F4{% else %}{{ accent_deep }}{% endif %};color:{% if dark %}#111111{% else %}#F6F3EC{% endif %}">{{ badge }}</span>
       {% endif %}
-      <h1 class="chead__h1">{{ collection.title }}</h1>
+      <h1 class="chead__h1">{% if is_all %}Shop All{% else %}{{ collection.title }}{% endif %}</h1>
       {% if tagline != blank %}
         <p class="chead__tag" style="color:{{ accent_deep }}">{{ tagline }}</p>
       {% endif %}
@@ -69,6 +82,33 @@
         <div class="chead__lede" style="border-left-color:{{ rule }}">{{ lede }}</div>
       {% endif %}
     </div>
+    {% if is_all %}
+      <div class="cindex">
+        {% assign order = 'meqenet,socie,kaldi,addis' | split: ',' %}
+        {% assign tinted = '#C4695A,#111111,#D8A620,#2E6E9E' | split: ',' %}
+        {% for key in order %}
+          {% assign tint = tinted[forloop.index0] %}
+          {% assign found = false %}
+          {% for c in collections %}
+            {% assign ck = c.handle | append: ' ' | append: c.title | downcase %}
+            {% if ck contains key and c.handle != 'all' and found == false %}
+              {% assign found = true %}
+              <a href="{{ c.url }}" class="cindex__row" style="border-left-color:{{ tint }}">
+                <span class="cindex__name">{{ c.title }}</span>
+                <span class="cindex__n">{% if c.products_count == 0 %}Soon{% else %}{{ c.products_count }}{% endif %}</span>
+              </a>
+            {% endif %}
+          {% endfor %}
+          {% if found == false and key == 'addis' %}
+            <a href="/pages/addis-abeba" class="cindex__row" style="border-left-color:{{ tint }}">
+              <span class="cindex__name">Addis Abeba</span>
+              <span class="cindex__n">Soon</span>
+            </a>
+          {% endif %}
+        {% endfor %}
+        <p class="cindex__note">Browse a line, or scroll for everything.</p>
+      </div>
+    {% else %}
     <div class="chead__plate" style="border-color:{% if dark %}rgba(248,244,244,0.28){% else %}{{ accent_deep }}66{% endif %};background:{% if dark %}#0C0C0C{% else %}#FDFBF3{% endif %}">
       <div class="chead__plate-in" style="background:{{ plate }};color:{{ accent_deep }}">
         {% if collection.image %}
@@ -78,6 +118,7 @@
         {% endif %}
       </div>
     </div>
+    {% endif %}
   </div>
 </section>
 
