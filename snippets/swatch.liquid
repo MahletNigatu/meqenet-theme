@@ -1,24 +1,97 @@
 {%- assign v = value | downcase -%}
-{%- assign hex = '#CCCCCC' -%}
-{%- if v contains 'natural' or v contains 'cream' or v contains 'ivory' or v contains 'bone' -%}{%- assign hex = '#EFE7D6' -%}
-{%- elsif v contains 'white' -%}{%- assign hex = '#FFFFFF' -%}
-{%- elsif v contains 'black' -%}{%- assign hex = '#141414' -%}
-{%- elsif v contains 'charcoal' or v contains 'dark grey' or v contains 'dark gray' -%}{%- assign hex = '#3A3A3A' -%}
-{%- elsif v contains 'heather' or v contains 'grey' or v contains 'gray' or v contains 'athletic' -%}{%- assign hex = '#B3B0AA' -%}
-{%- elsif v contains 'olive' or v contains 'military' or v contains 'army' -%}{%- assign hex = '#6A7B3D' -%}
-{%- elsif v contains 'forest' or v contains 'green' -%}{%- assign hex = '#3F5233' -%}
-{%- elsif v contains 'sky' or v contains 'light blue' or v contains 'carolina' -%}{%- assign hex = '#6BADE6' -%}
-{%- elsif v contains 'navy' or v contains 'blue' -%}{%- assign hex = '#26456B' -%}
-{%- elsif v contains 'salmon' or v contains 'peach' or v contains 'coral' -%}{%- assign hex = '#E98F8A' -%}
-{%- elsif v contains 'mauve' or v contains 'lilac' or v contains 'lavender' -%}{%- assign hex = '#B98FA6' -%}
-{%- elsif v contains 'rust' or v contains 'terracotta' or v contains 'brick' or v contains 'clay' -%}{%- assign hex = '#C4695A' -%}
-{%- elsif v contains 'maroon' or v contains 'burgundy' or v contains 'wine' -%}{%- assign hex = '#6E2B33' -%}
-{%- elsif v contains 'red' -%}{%- assign hex = '#B3342C' -%}
-{%- elsif v contains 'mustard' or v contains 'gold' or v contains 'yellow' -%}{%- assign hex = '#D8A620' -%}
-{%- elsif v contains 'sand' or v contains 'khaki' or v contains 'tan' or v contains 'beige' -%}{%- assign hex = '#CBB79A' -%}
-{%- elsif v contains 'brown' or v contains 'chocolate' or v contains 'espresso' -%}{%- assign hex = '#5A4232' -%}
-{%- elsif v contains 'pink' -%}{%- assign hex = '#E4A7BC' -%}
-{%- elsif v contains 'purple' -%}{%- assign hex = '#6A4C86' -%}
-{%- elsif v contains 'orange' -%}{%- assign hex = '#D97A2B' -%}
+{%- assign hex = '' -%}
+
+{%- comment -%} exact Bella+Canvas / Gildan names first {%- endcomment -%}
+{%- if v == 'autumn' -%}{%- assign hex = '#C05A24' -%}
+{%- elsif v == 'pebble' -%}{%- assign hex = '#9C8C82' -%}
+{%- elsif v == 'baby blue' -%}{%- assign hex = '#BBD4EE' -%}
+{%- elsif v == 'silver' -%}{%- assign hex = '#E2E2DE' -%}
+{%- elsif v == 'black heather' -%}{%- assign hex = '#2A2A2A' -%}
+{%- elsif v == 'solid white blend' -%}{%- assign hex = '#FCFCFA' -%}
+{%- elsif v == 'olive' -%}{%- assign hex = '#5E7238' -%}
+{%- elsif v == 'pink' -%}{%- assign hex = '#F2B4C4' -%}
+{%- elsif v == 'heather prism mint' -%}{%- assign hex = '#A4D9B6' -%}
+{%- elsif v == 'heather mauve' -%}{%- assign hex = '#B27F86' -%}
+{%- elsif v == 'natural' -%}{%- assign hex = '#F2E7C4' -%}
+{%- elsif v == 'mauve' -%}{%- assign hex = '#A9788A' -%}
+{%- elsif v == 'heather dust' -%}{%- assign hex = '#E3D6C8' -%}
+{%- elsif v == 'heather prism peach' -%}{%- assign hex = '#F0BFA8' -%}
+{%- elsif v == 'heather prism pink' -%}{%- assign hex = '#EFC3CE' -%}
+{%- elsif v == 'heather prism lilac' -%}{%- assign hex = '#CDBEDB' -%}
+{%- elsif v == 'heather prism ice blue' -%}{%- assign hex = '#C4DCE5' -%}
+{%- elsif v == 'heather olive' -%}{%- assign hex = '#6E7355' -%}
+{%- elsif v == 'heather forest' -%}{%- assign hex = '#4B5A4A' -%}
+{%- elsif v == 'heather midnight navy' -%}{%- assign hex = '#2C3A4F' -%}
+{%- elsif v == 'heather true royal' -%}{%- assign hex = '#33559B' -%}
+{%- elsif v == 'heather deep teal' -%}{%- assign hex = '#3A6A73' -%}
+{%- elsif v == 'heather raspberry' -%}{%- assign hex = '#B0455F' -%}
+{%- elsif v == 'heather red' -%}{%- assign hex = '#B4423C' -%}
+{%- elsif v == 'heather orange' -%}{%- assign hex = '#D4794A' -%}
+{%- elsif v == 'heather mustard' -%}{%- assign hex = '#C9A24B' -%}
+{%- elsif v == 'heather clay' -%}{%- assign hex = '#B5715C' -%}
+{%- elsif v == 'heather stone' -%}{%- assign hex = '#CFC6B8' -%}
+{%- elsif v == 'heather slate' -%}{%- assign hex = '#5F6A72' -%}
+{%- elsif v == 'heather aqua' -%}{%- assign hex = '#8FC7C9' -%}
+{%- elsif v == 'heather kelly' -%}{%- assign hex = '#4E8B5B' -%}
+{%- elsif v == 'athletic heather' -%}{%- assign hex = '#CBCBCB' -%}
+{%- elsif v == 'deep heather' -%}{%- assign hex = '#9A9A99' -%}
+{%- elsif v == 'dark grey heather' or v == 'dark gray heather' -%}{%- assign hex = '#4A4A4A' -%}
+{%- elsif v == 'heather grey' or v == 'heather gray' -%}{%- assign hex = '#C4C4C4' -%}
+{%- elsif v == 'soft cream' -%}{%- assign hex = '#EFE6D2' -%}
+{%- elsif v == 'vintage white' -%}{%- assign hex = '#EFEAE0' -%}
+{%- elsif v == 'ash' -%}{%- assign hex = '#D8D8D5' -%}
+{%- elsif v == 'storm' -%}{%- assign hex = '#7C8A93' -%}
+{%- elsif v == 'asphalt' -%}{%- assign hex = '#4B4F52' -%}
+{%- elsif v == 'army' -%}{%- assign hex = '#5C6248' -%}
+{%- elsif v == 'leaf' -%}{%- assign hex = '#5E7F4F' -%}
+{%- elsif v == 'true royal' -%}{%- assign hex = '#1E4FA3' -%}
+{%- elsif v == 'steel blue' -%}{%- assign hex = '#5E7C93' -%}
+{%- elsif v == 'dusty blue' -%}{%- assign hex = '#8CA6BC' -%}
+{%- elsif v == 'berry' -%}{%- assign hex = '#8E3B5A' -%}
+{%- elsif v == 'team purple' -%}{%- assign hex = '#5C3C85' -%}
+{%- elsif v == 'toast' -%}{%- assign hex = '#C99A6E' -%}
+{%- elsif v == 'mustard' -%}{%- assign hex = '#D2A63C' -%}
+{%- elsif v == 'aqua' -%}{%- assign hex = '#7FC9D6' -%}
+{%- elsif v == 'lilac' -%}{%- assign hex = '#C3AED6' -%}
+{%- elsif v == 'yellow' -%}{%- assign hex = '#F2D06B' -%}
+{%- elsif v == 'ochre' -%}{%- assign hex = '#C08A2E' -%}
+{%- elsif v == 'terracotta' -%}{%- assign hex = '#C4694F' -%}
+{%- elsif v == 'cardinal' -%}{%- assign hex = '#9E2B34' -%}
+{%- elsif v == 'oatmeal' or v == 'oatmeal triblend' -%}{%- assign hex = '#DCD3C0' -%}
+{%- elsif v == 'sage' -%}{%- assign hex = '#A8B79A' -%}
+{%- elsif v == 'evergreen' -%}{%- assign hex = '#33503F' -%}
 {%- endif -%}
+
+{%- comment -%} then keyword matching, specific hues before the greys {%- endcomment -%}
+{%- if hex == '' -%}
+  {%- if v contains 'mauve' -%}{%- assign hex = '#B08A8C' -%}
+  {%- elsif v contains 'lilac' or v contains 'lavender' -%}{%- assign hex = '#C0AED2' -%}
+  {%- elsif v contains 'olive' or v contains 'military' or v contains 'army' -%}{%- assign hex = '#6A7B3D' -%}
+  {%- elsif v contains 'forest' or v contains 'kelly' or v contains 'leaf' or v contains 'green' -%}{%- assign hex = '#4A6741' -%}
+  {%- elsif v contains 'teal' -%}{%- assign hex = '#3A6A73' -%}
+  {%- elsif v contains 'aqua' or v contains 'mint' -%}{%- assign hex = '#9CCFC8' -%}
+  {%- elsif v contains 'navy' or v contains 'midnight' -%}{%- assign hex = '#26456B' -%}
+  {%- elsif v contains 'royal' -%}{%- assign hex = '#2A55A8' -%}
+  {%- elsif v contains 'sky' or v contains 'light blue' or v contains 'carolina' or v contains 'ice blue' -%}{%- assign hex = '#6BADE6' -%}
+  {%- elsif v contains 'blue' -%}{%- assign hex = '#3F6C9E' -%}
+  {%- elsif v contains 'salmon' or v contains 'peach' or v contains 'coral' -%}{%- assign hex = '#E98F8A' -%}
+  {%- elsif v contains 'raspberry' or v contains 'berry' or v contains 'wine' or v contains 'maroon' or v contains 'burgundy' -%}{%- assign hex = '#7E2F45' -%}
+  {%- elsif v contains 'rust' or v contains 'terracotta' or v contains 'brick' or v contains 'clay' -%}{%- assign hex = '#C4695A' -%}
+  {%- elsif v contains 'pink' or v contains 'rose' -%}{%- assign hex = '#E4A7BC' -%}
+  {%- elsif v contains 'purple' or v contains 'plum' -%}{%- assign hex = '#6A4C86' -%}
+  {%- elsif v contains 'red' or v contains 'cardinal' -%}{%- assign hex = '#B3342C' -%}
+  {%- elsif v contains 'orange' -%}{%- assign hex = '#D97A2B' -%}
+  {%- elsif v contains 'mustard' or v contains 'gold' or v contains 'yellow' or v contains 'maize' -%}{%- assign hex = '#D8A620' -%}
+  {%- elsif v contains 'brown' or v contains 'chocolate' or v contains 'espresso' or v contains 'coffee' -%}{%- assign hex = '#5A4232' -%}
+  {%- elsif v contains 'sand' or v contains 'khaki' or v contains 'tan' or v contains 'beige' or v contains 'dust' or v contains 'stone' -%}{%- assign hex = '#CBB79A' -%}
+  {%- elsif v contains 'cream' or v contains 'ivory' or v contains 'bone' or v contains 'natural' -%}{%- assign hex = '#EFE7D6' -%}
+  {%- elsif v contains 'white' -%}{%- assign hex = '#FFFFFF' -%}
+  {%- elsif v contains 'black' or v contains 'asphalt' -%}{%- assign hex = '#141414' -%}
+  {%- elsif v contains 'charcoal' or v contains 'slate' or v contains 'storm' -%}{%- assign hex = '#5A6169' -%}
+  {%- elsif v contains 'dark grey' or v contains 'dark gray' -%}{%- assign hex = '#4A4A4A' -%}
+  {%- elsif v contains 'heather' or v contains 'grey' or v contains 'gray' or v contains 'ash' or v contains 'silver' -%}{%- assign hex = '#C4C4C4' -%}
+  {%- else -%}{%- assign hex = '#CCCCCC' -%}
+  {%- endif -%}
+{%- endif -%}
+
 {{ hex }}
