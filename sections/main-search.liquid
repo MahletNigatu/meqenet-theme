@@ -1,0 +1,29 @@
+<main class="sec" style="padding-top:52px">
+  <h1 class="coll__h1">Search</h1>
+  <form action="{{ routes.search_url }}" method="get" class="news" style="max-width:480px;margin:0 0 34px">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search the collections" aria-label="Search">
+    <button type="submit">Go</button>
+  </form>
+  {% if search.performed %}
+    <p class="sec__sub">{{ search.results_count }} result{% unless search.results_count == 1 %}s{% endunless %} for "{{ search.terms | escape }}"</p>
+    {% if search.results_count > 0 %}
+      <div class="prod-grid">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            <a href="{{ item.url }}" class="prod">
+              <div class="prod__mat tilat-sky"><div class="prod__img">
+                {% if item.featured_image %}<img src="{{ item.featured_image | image_url: width: 700 }}" alt="{{ item.title | escape }}" loading="lazy">{% endif %}
+              </div></div>
+              <div class="prod__body"><h4>{{ item.title }}</h4><p class="prod__meta">{{ item.price | money }}</p></div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="prod__empty">Nothing matched. Try a collection name, or browse <a href="{{ routes.all_products_collection_url }}">everything</a>.</p>
+    {% endif %}
+  {% endif %}
+</main>
+{% schema %}
+{ "name": "Search", "settings": [] }
+{% endschema %}

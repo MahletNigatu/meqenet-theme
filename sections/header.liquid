@@ -3,6 +3,8 @@
     <a href="{{ routes.root_url }}" class="brand">
       {% if section.settings.logo %}
         <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" width="84">
+      {% else %}
+        <img src="{{ 'sash-knot.png' | asset_url }}" alt="{{ shop.name }}" width="84">
       {% endif %}
       <span style="display:flex;flex-direction:column;gap:2px">
         <span class="brand__eth">{{ section.settings.amharic }}</span>
@@ -10,9 +12,21 @@
       </span>
     </a>
     <nav class="site-nav">
-      {% for link in linklists[section.settings.menu].links %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {% endfor %}
+      {%- assign menu = linklists[section.settings.menu] -%}
+      {%- if menu.links.size > 0 and section.settings.use_menu -%}
+        {% for link in menu.links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      {%- else -%}
+        <a href="{{ routes.all_products_collection_url }}">Shop All</a>
+        {% for c in collections %}
+          {%- unless c.handle == 'frontpage' or c.products_count == 0 -%}
+            <a href="{{ c.url }}">{{ c.title }}</a>
+          {%- endunless -%}
+        {% endfor %}
+        <a href="/pages/addis-abeba">Addis Abeba</a>
+        <a href="/pages/our-story">Our Story</a>
+      {%- endif -%}
     </nav>
     <a href="{{ routes.cart_url }}" class="cart-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2l1.5 4h13L19 15H8L6 2H3"/><circle cx="9" cy="20" r="1.6"/><circle cx="18" cy="20" r="1.6"/></svg>
@@ -26,6 +40,7 @@
   "settings": [
     { "type": "image_picker", "id": "logo", "label": "Sash mark" },
     { "type": "text", "id": "amharic", "label": "Amharic wordmark", "default": "መቀነት" },
+    { "type": "checkbox", "id": "use_menu", "label": "Use a Shopify menu instead of automatic links", "default": false },
     { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
   ]
 }

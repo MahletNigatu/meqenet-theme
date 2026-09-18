@@ -1,0 +1,42 @@
+<section class="addis__hero">
+  <div class="addis__hero-in">
+    <div>
+      <span class="addis__flag">Coming Soon</span>
+      <h1 class="addis__h1">Addis Abeba</h1>
+      <p class="addis__sub">City life, rooted in home.</p>
+      <div class="addis__lede">
+        <p>Addis moves fast. Minibuses in that particular blue, corrugated roofs catching light, doorways stacked along a hill. This line takes the city apart and reweaves it &mdash; skylines flattened into tilat stripes, street grids read as pattern, arches repeating like a border on a sash.</p>
+        <p style="margin:0">For the women who live in the city and carry home with them.</p>
+      </div>
+      <div class="addis__form">
+        <p class="addis__form-k">Be the first to know when Addis Abeba drops.</p>
+        {% form 'customer' %}
+          <input type="hidden" name="contact[tags]" value="addis-abeba-waitlist">
+          <div class="news">
+            <input type="email" name="contact[email]" placeholder="you@email.com" required aria-label="Email">
+            <button type="submit" class="addis__btn">Notify me</button>
+          </div>
+          {% if form.posted_successfully? %}<p class="addis__ok">Thank you &mdash; we'll write when it lands.</p>{% endif %}
+        {% endform %}
+      </div>
+    </div>
+    <div class="addis__plate"><div class="addis__plate-in">Artwork coming</div></div>
+  </div>
+</section>
+
+<section class="sec" style="padding:60px var(--pad) 20px">
+  <div class="divider" style="padding:0 0 34px">
+    <span class="coll__count" style="color:var(--gold-deep)">Four ways in</span>
+    <div class="tilat-rule tilat tilat-sky"></div>
+  </div>
+  <p class="addis__note">Four motifs are on the table for the artwork. They aren't exclusive &mdash; the strongest version of the line probably runs two of them against each other.</p>
+  <div class="addis__dirs">
+    <div><p class="addis__dir-n">01 &middot; Cityscape</p><h4>Skyline as tilat</h4><p>The city's edge &mdash; towers, cranes, hills &mdash; compressed into the banded stripe language of a woven sash.</p></div>
+    <div><p class="addis__dir-n">02 &middot; Street texture</p><h4>Roofs and minibus blue</h4><p>Corrugated iron ridges, market awnings, that one blue every Addis minibus wears. The palette comes straight off the street.</p></div>
+    <div><p class="addis__dir-n">03 &middot; Architectural</p><h4>Arches, repeated</h4><p>Doorways and window arches set end to end, running like the decorated border at the hem of a meqenet.</p></div>
+    <div><p class="addis__dir-n">04 &middot; Cartographic</p><h4>Streets as weave</h4><p>The street grid around Meskel Square and Bole, traced until the roads read as warp and weft.</p></div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Addis Abeba coming soon", "settings": [] }
+{% endschema %}

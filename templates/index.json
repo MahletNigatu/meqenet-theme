@@ -96,7 +96,8 @@
             "blurb": "Try. Fail. Fix the መቀነት. Try again. The founding line — resilience in motion.",
             "accent": "#C4695A",
             "tint": "#FBEDE8",
-            "style": "light"
+            "style": "light",
+            "fallback": "tee-meqenet-mauve.png"
           }
         },
         "t2": {

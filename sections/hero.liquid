@@ -5,6 +5,8 @@
          srcset="{{ section.settings.image | image_url: width: 1160 }} 1160w, {{ section.settings.image | image_url: width: 2320 }} 2320w"
          sizes="(min-width:1240px) 1160px, 100vw"
          alt="{{ section.settings.image.alt | default: shop.name | escape }}" width="1160">
+  {% else %}
+    <img src="{{ 'brand-hero.png' | asset_url }}" alt="{{ shop.name }}" width="1160">
   {% endif %}
   {% if section.settings.heading != blank %}<h2>{{ section.settings.heading }}</h2>{% endif %}
   {% if section.settings.body != blank %}<div class="hero__body">{{ section.settings.body }}</div>{% endif %}

@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "prose-page",
+      "settings": {
+        "kicker": "Help",
+        "heading": "Returns &amp; exchanges",
+        "body": "<p>Because each piece is made for you specifically, we can't restock returns. That said, we don't want you stuck with something wrong.</p>\n<h3>Damaged or misprinted</h3><p>Write to us within 30 days of delivery with a photo and we'll remake it or refund it. No need to send the original back.</p>\n<h3>Wrong size</h3><p>Check the size guide before ordering — that's the honest advice. If it still arrives wrong, contact us within 30 days and we'll work it out.</p>\n<h3>Wrong address</h3><p>If a package comes back to us because the address was incorrect, we'll reship it once you confirm the correct one. Reshipping is at your cost.</p>\n<h3>Changed your mind</h3><p>Email us within two hours of ordering and we can usually cancel before production starts. After that the piece is already being made.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

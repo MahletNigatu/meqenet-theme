@@ -13,6 +13,8 @@
             <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
           {% elsif coll.featured_image %}
             <img src="{{ coll.featured_image | image_url: width: 900 }}" alt="{{ coll.title | escape }}" loading="lazy">
+          {% elsif block.settings.fallback != blank %}
+            <img src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">
           {% endif %}
         </div>
         <div class="coll__body">
@@ -42,6 +44,7 @@
       { "type": "text", "id": "title", "label": "Title override" },
       { "type": "textarea", "id": "blurb", "label": "Blurb" },
       { "type": "image_picker", "id": "image", "label": "Tile art" },
+      { "type": "text", "id": "fallback", "label": "Bundled asset filename (fallback)" },
       { "type": "color", "id": "accent", "label": "Accent", "default": "#C4695A" },
       { "type": "color", "id": "tint", "label": "Image ground", "default": "#FBEDE8" },
       { "type": "select", "id": "style", "label": "Treatment", "default": "light",

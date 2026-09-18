@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "prose-page",
+      "settings": {
+        "kicker": "The brand",
+        "heading": "Contact",
+        "body": "<p>Write to us and a person reads it.</p>\n<h3>Order questions</h3><p>Have your order number ready — it's in your confirmation email and starts with a #. Damaged or misprinted items: send a photo and we'll sort it without needing the piece back.</p>\n<h3>Everything else</h3><p>Wholesale, press, collaborations, or a question about the word itself. All welcome.</p>\n<h3>Response time</h3><p>One business day, usually less.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

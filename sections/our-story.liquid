@@ -1,0 +1,51 @@
+<main>
+  <section class="sec" style="padding:60px var(--pad) 20px">
+    <p class="kicker">Our Roots</p>
+    <img src="{{ 'sash-mark.png' | asset_url }}" alt="{{ shop.name }}" style="width:min(360px,100%);margin:0 0 8px">
+    <h1 class="story__eth">መቀነት</h1>
+    <p class="story__latin">MEQENET</p>
+    <h2 class="story__tag">"Tie Yourself Together."</h2>
+  </section>
+
+  <section class="story__body">
+    <aside>
+      <div class="story__def">
+        <p class="story__def-eth">መቀነት</p>
+        <p class="story__def-pos">meqenet &middot; noun</p>
+        <p class="story__def-txt">A woven cotton belt, sash or waistband, decorated with colorful patterns called tilat. A girdle. A cincture. Something that holds and secures.</p>
+      </div>
+    </aside>
+    <div class="story__prose">
+      <p>መቀነት (meqenet) is a traditional Ethiopian fabric belt, sash, or waistband, woven from cotton and often decorated with vibrant, colorful patterns called tilat. Traditionally worn by women wrapped tightly around the waist over the Habesha kemis, it has always been more than an accessory. It's a general belt, a girdle, a cincture &mdash; something that holds and secures.</p>
+      <p>But for Ethiopian women, መቀነት carries a meaning that goes far beyond fabric.</p>
+      <p>In its essence, a መቀነት represents strength. At the same time, it represents support, the kind that holds your back and steadies you. It sits at the center of the body, right where your upper half meets your lower half, and in doing so becomes something more than clothing. Metaphorically, it holds you together.</p>
+      <p>To say you are tightening your መቀነት, or fixing your መቀነት, is to say something deeper than adjusting a garment. It means gathering all your strength. That is why we try, fail, fix the መቀነት, and try again.</p>
+      <p>And this is the paradox at the heart of the word: a መቀነት is, at once, a source of strength and an admission that you had been weak. To reach for it is to acknowledge vulnerability &mdash; that you had been weakened, undone. But the same motion that admits this fragility is the motion that restores you. In tying it, you become brave and strong again. The wound and the healing live in the same gesture.</p>
+      <blockquote class="story__quote">"Strength that was tested, support that held, and the quiet bravery of tying yourself back together."</blockquote>
+    </div>
+  </section>
+
+  <section class="sec" style="padding:48px var(--pad) 70px">
+    <div class="divider">
+      <div class="tilat-rule tilat"></div>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#D8A620" stroke-width="1.2" style="flex:0 0 auto"><path d="M12 1.5l10.5 10.5L12 22.5 1.5 12z"/><path d="M12 6.5L17.5 12 12 17.5 6.5 12z"/></svg>
+      <div class="tilat-rule tilat"></div>
+    </div>
+    <a href="{{ routes.all_products_collection_url }}" class="btn">Shop the Collections
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="creed">
+      <p class="creed__lines">
+        <span style="color:#2E6E9E">WE GATHER.</span><br>
+        <span style="color:#6A7B3D">WE RISE.</span><br>
+        <span style="color:#C4695A">WE FIX THE <span class="eth">መቀነት</span>.</span><br>
+        <span style="color:#8C670F">WE TRY AGAIN.</span>
+      </p>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8A620" stroke-width="1.2" style="margin:0 auto 18px"><path d="M12 2l10 10-10 10L2 12z"/><path d="M12 8l4 4-4 4-4-4z"/></svg>
+      <p class="creed__note">A reminder that strength is in gathering yourself, support is in community, and courage is in continuing.</p>
+    </div>
+  </section>
+</main>
+{% schema %}
+{ "name": "Our Story", "settings": [] }
+{% endschema %}

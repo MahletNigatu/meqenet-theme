@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "prose-page",
+      "settings": {
+        "kicker": "The brand",
+        "heading": "Size guide",
+        "body": "<p>Sizing varies by garment, so the numbers on each product page are the ones to trust. What follows is general guidance.</p>\n<h3>Measuring</h3><p>Lay a shirt you already like flat and measure across the chest, armpit to armpit. Double it. That's your chest measurement, and it's a more reliable guide than what you think your size is.</p>\n<h3>Fit</h3><p>Our tees run true to size with a straight body. If you prefer room through the shoulder or wear layers underneath, size up.</p>\n<h3>Hoodies and crewnecks</h3><p>These run relaxed by design. Most people take their usual size and get the fit we intended.</p>\n<h3>Between sizes</h3><p>Size up. Cotton shrinks slightly on the first wash even with cold water.</p>\n<h3>Care</h3><p>Cold wash, inside out, tumble dry low. The print lasts considerably longer that way.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
