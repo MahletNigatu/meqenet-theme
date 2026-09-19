@@ -130,6 +130,7 @@
             "collection": "",
             "title": "Addis Abeba",
             "blurb": "City life, rooted in home.",
+            "image": "shopify://shop_images/Addis_Abeba.png",
             "fallback": "",
             "accent": "#2e6e9e",
             "tint": "#dce7f1",
